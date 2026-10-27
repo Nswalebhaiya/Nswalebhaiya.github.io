@@ -86,6 +86,34 @@ p{color:#e5e7eb;line-height:1.7;font-size:15px}
 @media(min-width:760px){
   .gallery{grid-template-columns:repeat(4,minmax(0,1fr))}
 }
+
+/* NS Wale Bhaiya Glow */
+body {
+  background-size: 200% 200%;
+  animation: nsBgGlow 12s ease infinite;
+}
+
+.hero {
+  background: linear-gradient(135deg, #25143d, #34205a, #161d42, #25143d);
+  background-size: 250% 250%;
+  animation: nsBgGlow 12s ease infinite;
+}
+
+.hero .avatar {
+  box-shadow: 0 0 12px #d946ef88, 0 0 28px #d946ef66;
+  animation: nsAvatarGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes nsBgGlow {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+@keyframes nsAvatarGlow {
+  from { box-shadow: 0 0 8px #d946ef66; }
+  to { box-shadow: 0 0 25px #d946efcc; }
+}
+  
 </style>
 </head>
 
