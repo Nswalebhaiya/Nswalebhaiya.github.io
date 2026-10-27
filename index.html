@@ -171,10 +171,10 @@ photos.forEach((filename) => {
   error.className = "photo-error";
   error.textContent = "Photo not found: " + filename;
 
-  img.addEventListener("error", () => {
-    img.style.display = "none";
-    error.style.display = "flex";
-  });
+  
+img.addEventListener("error", () => {
+  card.remove();
+});
 
   img.addEventListener("load", () => {
     img.style.display = "block";
