@@ -225,6 +225,49 @@ body {
   }
 }
   
+/* NS Wale Bhaiya - Live Neon Background */
+body {
+  background-image:
+    radial-gradient(
+      circle at 15% 20%,
+      #7c3aed33,
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at 85% 80%,
+      #d946ef22,
+      transparent 40%
+    ),
+    linear-gradient(
+      135deg,
+      #0b0618,
+      #171033,
+      #0b1026,
+      #1b0b2e
+    );
+  background-size: 200% 200%;
+  animation: nsNeonBackground 14s ease-in-out infinite;
+  background-attachment: fixed;
+}
+
+@keyframes nsNeonBackground {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body {
+    animation: none;
+  }
+}
+  
 </style>
 </head>
 
