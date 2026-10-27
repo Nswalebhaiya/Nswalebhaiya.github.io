@@ -113,6 +113,41 @@ body {
   from { box-shadow: 0 0 8px #d946ef66; }
   to { box-shadow: 0 0 25px #d946efcc; }
 }
+
+/* Stylish NS Wale Bhaiya Gallery */
+.gallery {
+  gap: 14px;
+}
+
+.photo {
+  border-radius: 18px;
+  box-shadow: 0 4px 14px #0004;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.photo img {
+  transition: transform 0.5s ease;
+}
+
+.photo:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px #d946ef55;
+}
+
+.photo:hover img {
+  transform: scale(1.08);
+}
+
+.photo:active {
+  transform: scale(0.98);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .photo,
+  .photo img {
+    transition: none;
+  }
+}
   
 </style>
 </head>
