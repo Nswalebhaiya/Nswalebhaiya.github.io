@@ -149,6 +149,43 @@ body {
   }
 }
   
+/* NS Wale Bhaiya - Glowing Social Links */
+.links a {
+  display: block;
+  margin: 14px auto;
+  padding: 15px 18px;
+  max-width: 420px;
+  border: 1px solid #d946ef66;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #34205a, #25143d);
+  color: #ffffff;
+  font-weight: bold;
+  text-decoration: none;
+  box-shadow: 0 0 10px #d946ef22;
+  transition: transform 0.25s ease,
+              box-shadow 0.25s ease,
+              border-color 0.25s ease;
+}
+
+.links a:hover,
+.links a:focus-visible {
+  transform: translateY(-3px);
+  border-color: #d946ef;
+  box-shadow: 0 0 18px #d946ef77;
+  outline: 2px solid #d946ef88;
+  outline-offset: 2px;
+}
+
+.links a:active {
+  transform: scale(0.98);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .links a {
+    transition: none;
+  }
+}
+  
 </style>
 </head>
 
