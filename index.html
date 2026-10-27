@@ -186,6 +186,45 @@ body {
   }
 }
   
+/* NS Wale Bhaiya Welcome Animation */
+.welcome-intro {
+  text-align: center;
+  padding: 24px 12px;
+  color: #ffffff;
+  font-size: clamp(22px, 6vw, 34px);
+  font-weight: 900;
+  letter-spacing: 1px;
+  text-shadow:
+    0 0 8px #d946ef,
+    0 0 20px #9333ea;
+  animation: nsWelcome 1.2s ease-out both;
+}
+
+.welcome-intro span {
+  display: inline-block;
+  background: linear-gradient(90deg, #f0abfc, #a78bfa, #67e8f9);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+@keyframes nsWelcome {
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .welcome-intro {
+    animation: none;
+  }
+}
+  
 </style>
 </head>
 
