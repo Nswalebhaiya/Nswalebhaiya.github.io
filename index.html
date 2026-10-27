@@ -4,50 +4,228 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#101323">
 <title>NS Wale Bhaiya | Content Creator</title>
+
 <style>
 *{box-sizing:border-box}
-body{margin:0;font-family:Arial,sans-serif;background:linear-gradient(135deg,#101323,#34205a,#111827);color:#fff;min-height:100vh;padding:25px 15px}
-main{max-width:520px;margin:auto}
-.card{background:#ffffff12;border:1px solid #ffffff25;border-radius:22px;padding:24px;margin:16px 0;box-shadow:0 8px 28px #0003}
+body{
+  margin:0;font-family:Arial,sans-serif;
+  background:linear-gradient(135deg,#101323,#34205a,#111827);
+  color:#fff;min-height:100vh;padding:25px 15px
+}
+main{max-width:700px;margin:auto}
+.card{
+  background:#ffffff12;border:1px solid #ffffff25;
+  border-radius:22px;padding:24px;margin:16px 0;
+  box-shadow:0 8px 28px #0003;backdrop-filter:blur(10px)
+}
 .hero{text-align:center;padding-top:32px}
-.avatar{width:100px;height:100px;margin:auto;border-radius:50%;display:block;object-fit:cover;border:4px solid #ffffff55}
+.avatar{
+  width:100px;height:100px;margin:auto;border-radius:50%;
+  display:block;object-fit:cover;border:4px solid #ffffff55
+}
 h1{font-size:29px;margin:18px 0 8px}
 .tag{color:#e9d5ff;font-size:16px}
-.badge{display:inline-block;margin-top:15px;padding:9px 16px;background:#ffffff18;border-radius:30px;color:#f5d0fe;font-weight:bold}
+.badge{
+  display:inline-block;margin-top:15px;padding:9px 16px;
+  background:#ffffff18;border-radius:30px;color:#f5d0fe;font-weight:bold
+}
 h2{font-size:20px;margin-top:0}
 p{color:#e5e7eb;line-height:1.7;font-size:15px}
-.links a{display:block;text-decoration:none;text-align:center;padding:14px;margin:12px 0;border-radius:12px;background:#fff;color:#25143d;font-weight:bold}
+.links a{
+  display:block;text-decoration:none;text-align:center;padding:14px;
+  margin:12px 0;border-radius:12px;background:#fff;
+  color:#25143d;font-weight:bold
+}
 .links a:hover{background:#e9d5ff}
-.stat{text-align:center;font-size:24px;font-weight:bold;color:#f0abfc}
 .small{text-align:center;font-size:12px;color:#cbd5e1}
+
+.gallery-intro{color:#d8c9f5;margin-top:-5px}
+.gallery{
+  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:10px;margin-top:18px
+}
+.photo{
+  position:relative;overflow:hidden;border-radius:14px;
+  aspect-ratio:4/5;background:#201a32;border:1px solid #ffffff20;
+  cursor:pointer
+}
+.photo img{
+  width:100%;height:100%;display:block;object-fit:cover;
+  transition:transform .3s ease
+}
+.photo:hover img{transform:scale(1.05)}
+.photo:focus-visible{outline:2px solid #e9d5ff;outline-offset:3px}
+.photo-error{
+  display:none;position:absolute;inset:0;align-items:center;
+  justify-content:center;padding:10px;text-align:center;
+  color:#e9d5ff;font-size:12px;overflow-wrap:anywhere
+}
+.photo img:not([src]){display:none}
+
+#viewer{
+  position:fixed;inset:0;background:#080710f2;z-index:10;
+  display:none;align-items:center;justify-content:center;
+  padding:55px 12px 20px
+}
+#viewer.open{display:flex}
+#viewer img{
+  max-width:100%;max-height:85vh;object-fit:contain;border-radius:10px
+}
+.close{
+  position:absolute;top:12px;right:15px;width:44px;height:44px;
+  border:0;border-radius:50%;background:#ffffff20;color:white;
+  font-size:28px;cursor:pointer
+}
+@media(min-width:560px){
+  .gallery{grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+}
+@media(min-width:760px){
+  .gallery{grid-template-columns:repeat(4,minmax(0,1fr))}
+}
 </style>
 </head>
+
 <body>
 <main>
+
 <section class="card hero">
-<img src="1750246498384.jpg" alt="NS Wale Bhaiya" class="avatar">
-<h1>NS Wale Bhaiya</h1>
-<div class="tag">✨ Content Creator ✨</div>
-<div class="badge">▶ 2K+ YouTube Subscribers</div>
+  <img src="1750246498384.jpg" alt="NS Wale Bhaiya" class="avatar">
+  <h1>NS Wale Bhaiya</h1>
+  <div class="tag">✨ Content Creator ✨</div>
+  <div class="badge">▶ 2K+ YouTube Subscribers</div>
 </section>
 
 <section class="card">
-<h2>👋 About Me</h2>
-<p>My real name is Saiyob Akter Ansari, but I am widely known as NS Wale Bhaiya. I am a content creator on YouTube with a community of 2K+ subscribers. After my previous Instagram account was disabled, I started this new profile to reconnect with my audience, build my community, and continue sharing my video content.</p>
+  <h2>👋 About Me</h2>
+  <p>My real name is Saiyob Akter Ansari, but I am widely known as NS Wale Bhaiya. I am a content creator on YouTube with a community of 2K+ subscribers. After my previous Instagram account was disabled, I started this new profile to reconnect with my audience, build my community, and continue sharing my video content.</p>
 </section>
 
 <section class="card">
-<h2>📱 Connect With Me</h2>
-<div class="links">
-<a href="https://youtube.com/@ns_wale_bhaiya?si=ulXVLEd6e01aFjqz" target="_blank">▶ YouTube Channel</a>
-<a href="https://www.instagram.com/ns_wale_bhaiya?srtk=azUyZjAyMTZtZXYx" target="_blank">📸 Instagram Profile</a>
-<a href="https://t.me/black_devilyt" target="_blank">✈️ Telegram Channel</a>
-<a href="https://wa.me/918768566804" target="_blank">💬 WhatsApp Contact</a>
-</div>
+  <h2>📸 My Photo Gallery</h2>
+  <p class="gallery-intro">Some moments from my journey ❤️</p>
+
+  <div class="gallery" id="gallery"></div>
+</section>
+
+<section class="card">
+  <h2>📱 Connect With Me</h2>
+  <div class="links">
+    <a href="https://youtube.com/@ns_wale_bhaiya?si=ulXVLEd6e01aFjqz" target="_blank" rel="noopener noreferrer">▶ YouTube Channel</a>
+    <a href="https://www.instagram.com/ns_wale_bhaiya?srtk=azUyZjAyMTZtZXYx" target="_blank" rel="noopener noreferrer">📸 Instagram Profile</a>
+    <a href="https://t.me/black_devilyt" target="_blank" rel="noopener noreferrer">✈️ Telegram Channel</a>
+    <a href="https://wa.me/918768566804" target="_blank" rel="noopener noreferrer">💬 WhatsApp Contact</a>
+  </div>
 </section>
 
 <p class="small">Thanks for visiting my website ❤️</p>
 </main>
+
+<div id="viewer" role="dialog" aria-modal="true" aria-label="Photo viewer">
+  <button class="close" id="closeViewer" aria-label="Close photo">×</button>
+  <img id="largePhoto" alt="Enlarged gallery photo">
+</div>
+
+<script>
+const photos = [
+  "IMG_20260224_150506275_HDR~2.jpg",
+  "IMG_20260224_150010292_HDR~2.jpg",
+  "IMG_20260329_102644586_HDR.jpg",
+  "IMG_20260404_153332485_HDR.jpg",
+  "IMG_20260628_102930333~2.jpg",
+  "IMG_20260523_224258_496.webp",
+  "17866357857654114.jpg",
+  "1758099541333.jpg",
+  "IMG_20250524_173614.jpg",
+  "1750246498384.jpg",
+  "-ysx4j7.jpg",
+  "IMG_20250402_224835.jpg",
+  "IMG_20250406_100848_818.jpg",
+  "IMG_20250331_165252.jpg",
+  "-naccvq.jpg",
+  "Photoroom-20241001_185513.png",
+  "1727621082503.jpg",
+  "20230702_111909-1.jpg",
+  "IMG_20240303_193616_401.jpg",
+  "Life is a journey_ enjoy the ride on two wheels-(WEBP).webp",
+  "IMG_20240105_184351_099.jpg",
+  "IMG_20240105_184351_892.jpg",
+  "IMG_20240105_184351_408.jpg",
+  "IMG_20240105_184351_352.jpg",
+  "IMG_20240709_102901_307.jpg",
+  "IMG_20240105_184359_262.jpg",
+  "IMG_20240105_184359_739.jpg",
+  "IMG_20231224_015538_758.jpg",
+  "Screenshot_20231230-203232_Instagram.jpg"
+];
+
+const gallery = document.getElementById("gallery");
+const viewer = document.getElementById("viewer");
+const largePhoto = document.getElementById("largePhoto");
+const closeViewer = document.getElementById("closeViewer");
+
+photos.forEach((filename) => {
+  const card = document.createElement("div");
+  card.className = "photo";
+  card.tabIndex = 0;
+  card.setAttribute("role", "button");
+  card.setAttribute("aria-label", "Open photo: " + filename);
+
+  const img = document.createElement("img");
+  img.src = filename;
+  img.alt = filename;
+  img.loading = "lazy";
+  img.decoding = "async";
+
+  const error = document.createElement("div");
+  error.className = "photo-error";
+  error.textContent = "Photo not found: " + filename;
+
+  img.addEventListener("error", () => {
+    img.style.display = "none";
+    error.style.display = "flex";
+  });
+
+  img.addEventListener("load", () => {
+    img.style.display = "block";
+    error.style.display = "none";
+  });
+
+  function openPhoto() {
+    if (!img.naturalWidth) return;
+    largePhoto.src = img.src;
+    largePhoto.alt = filename;
+    viewer.classList.add("open");
+    closeViewer.focus();
+  }
+
+  card.addEventListener("click", openPhoto);
+  card.addEventListener("keydown", (event) => {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      openPhoto();
+    }
+  });
+
+  card.append(img, error);
+  gallery.appendChild(card);
+});
+
+function closePhoto() {
+  viewer.classList.remove("open");
+  largePhoto.removeAttribute("src");
+}
+
+closeViewer.addEventListener("click", closePhoto);
+
+viewer.addEventListener("click", (event) => {
+  if (event.target === viewer) closePhoto();
+});
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") closePhoto();
+});
+</script>
 </body>
 </html>
