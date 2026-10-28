@@ -73,6 +73,75 @@ section{padding:55px 6%}
 .photo{height:165px}
 }
 @media(max-width:380px){.gallery{grid-template-columns:1fr}}
+
+/* NS WALE BHAIYA — RED & BLACK THEME ONLY */
+:root {
+  --bg: #050505;
+  --panel: rgba(12, 5, 7, 0.94);
+  --red: #ff1028;
+  --red-dark: #79000e;
+  --gold: #ff2638;
+  --text: #f7f5f2;
+  --muted: #c0b8bb;
+  --line: rgba(255, 20, 40, 0.55);
+  --glow-red: 0 0 12px rgba(255, 16, 40, 0.65),
+              0 0 28px rgba(255, 16, 40, 0.25);
+  --glow-gold: 0 0 12px rgba(255, 16, 40, 0.45);
+}
+
+body {
+  background:
+    radial-gradient(ellipse at 15% 10%,
+      rgba(180, 0, 20, 0.25), transparent 40%),
+    radial-gradient(ellipse at 90% 55%,
+      rgba(255, 0, 25, 0.12), transparent 35%),
+    linear-gradient(145deg, #030303, #150407 55%, #050505);
+}
+
+.topbar {
+  background: rgba(3, 3, 3, 0.94);
+  border-bottom-color: rgba(255, 20, 40, 0.65);
+}
+
+.hero::before {
+  background: linear-gradient(
+    120deg,
+    rgba(255, 0, 25, 0.22),
+    transparent 48%,
+    rgba(100, 0, 12, 0.18)
+  );
+}
+
+.panel,
+.social-card,
+.gallery-item {
+  border-color: rgba(255, 20, 40, 0.45);
+}
+
+.feature-icon,
+.social-icon {
+  color: #ff2638;
+  background: rgba(255, 20, 40, 0.12);
+  border-color: rgba(255, 20, 40, 0.4);
+}
+
+.social-card:nth-child(2) .social-icon,
+.social-card:nth-child(4) .social-icon {
+  color: #ff2638;
+  background: rgba(255, 20, 40, 0.12);
+  border-color: rgba(255, 20, 40, 0.4);
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #ff2638;
+  box-shadow: var(--glow-red);
+}
+
+footer {
+  border-top-color: rgba(255, 20, 40, 0.4);
+}
+  
 </style>
 </head>
 
