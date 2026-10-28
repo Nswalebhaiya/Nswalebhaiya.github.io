@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -88,9 +87,42 @@ h1{
   margin:20px 0;
 }
 
-h1 span{
-  color:#b00012;
-  text-shadow:0 0 18px #b0001240;
+/* NEW: NEON NAME ANIMATION */
+.neon-name{
+  color:#fff;
+  animation:neonNameGlow 1.8s ease-in-out infinite alternate;
+}
+
+.neon-name span{
+  color:#ff263d;
+  text-shadow:
+    0 0 5px #ff321f,
+    0 0 12px #ff1600,
+    0 0 24px #ff1600;
+  animation:neonLetterGlow 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes neonNameGlow{
+  from{
+    text-shadow:0 0 4px #ff321f33;
+  }
+  to{
+    text-shadow:0 0 12px #ff321f66,0 0 22px #b0001244;
+  }
+}
+
+@keyframes neonLetterGlow{
+  from{
+    color:#ff263d;
+    text-shadow:0 0 5px #ff321f,0 0 12px #ff1600;
+  }
+  to{
+    color:#ff6847;
+    text-shadow:
+      0 0 8px #ff9d00,
+      0 0 18px #ff321f,
+      0 0 32px #ff1600;
+  }
 }
 
 p{color:var(--muted);line-height:1.8}
@@ -134,11 +166,9 @@ p{color:var(--muted);line-height:1.8}
   align-items:center;
 }
 
-/* PROFILE + ANIMATED FIRE RING */
 .profile{
   position:relative;
   isolation:isolate;
-  flex-shrink:0;
   width:245px;
   height:245px;
   border-radius:50%;
@@ -146,11 +176,10 @@ p{color:var(--muted);line-height:1.8}
   border:3px solid #ff321f;
   background:#090000;
   box-shadow:0 0 12px #ff1600,0 0 28px #ff1600;
-  animation:
-    floatProfile 4.5s ease-in-out infinite,
-    fireGlow 1.2s ease-in-out infinite alternate;
+  animation:floatProfile 4.5s ease-in-out infinite,fireGlow 1.2s ease-in-out infinite alternate;
 }
 
+/* EXISTING DP FIRE RING */
 .profile::before{
   content:"";
   position:absolute;
@@ -185,6 +214,21 @@ p{color:var(--muted);line-height:1.8}
   animation:firePulse .7s ease-in-out infinite alternate;
 }
 
+@keyframes fireRotate{
+  from{transform:rotate(0deg)}
+  to{transform:rotate(360deg)}
+}
+
+@keyframes fireGlow{
+  from{box-shadow:0 0 10px #ff1600,0 0 18px #b00012}
+  to{box-shadow:0 0 25px #ff2600,0 0 40px #b00012}
+}
+
+@keyframes firePulse{
+  from{opacity:.55}
+  to{opacity:1}
+}
+
 .profile img{
   position:relative;
   z-index:1;
@@ -193,25 +237,6 @@ p{color:var(--muted);line-height:1.8}
   border-radius:50%;
   object-fit:cover;
   display:block;
-}
-
-@keyframes fireRotate{
-  from{transform:rotate(0deg)}
-  to{transform:rotate(360deg)}
-}
-
-@keyframes fireGlow{
-  from{
-    box-shadow:0 0 10px #ff1600,0 0 18px #b00012;
-  }
-  to{
-    box-shadow:0 0 25px #ff2600,0 0 40px #b00012;
-  }
-}
-
-@keyframes firePulse{
-  from{opacity:.55}
-  to{opacity:1}
 }
 
 .follow-instagram{
@@ -395,8 +420,14 @@ footer span{color:#c00016}
   50%{transform:translateY(-8px)}
 }
 
-.logo,.links a,.tag,h1,h2,h3,
-.intro p,.buttons .btn,.social-heading,footer{
+.logo,
+.links a,
+.tag,
+h1,h2,h3,
+.intro p,
+.buttons .btn,
+.social-heading,
+footer{
   animation:floatText 3.5s ease-in-out infinite;
 }
 
@@ -428,7 +459,7 @@ footer span{color:#c00016}
   100%{transform:translate3d(25px,110vh,0) rotate(220deg);opacity:0}
 }
 
-/* MUSIC BUTTON — ORIGINAL POSITION */
+/* MUSIC BUTTON — ORIGINAL POSITION AND SIZE */
 #musicBtn{
   position:fixed;
   bottom:20px;
@@ -450,6 +481,32 @@ footer span{color:#c00016}
 @keyframes musicGlow{
   0%,100%{box-shadow:0 0 7px #79000b45}
   50%{box-shadow:0 0 13px #a0001255}
+}
+
+/* NEW: NEON CURSOR AND TOUCH PARTICLES */
+.neon-trail-particle{
+  position:fixed;
+  left:0;
+  top:0;
+  width:7px;
+  height:7px;
+  border-radius:50%;
+  pointer-events:none;
+  z-index:100000;
+  transform:translate(-50%,-50%);
+  will-change:transform,opacity;
+  animation:neonTrailFade .65s ease-out forwards;
+}
+
+@keyframes neonTrailFade{
+  0%{
+    opacity:1;
+    transform:translate(-50%,-50%) scale(1);
+  }
+  100%{
+    opacity:0;
+    transform:translate(-50%,-90%) scale(.1);
+  }
 }
 
 @media(max-width:800px){
@@ -519,7 +576,7 @@ footer span{color:#c00016}
 
   <div class="intro">
     <div class="tag">🏍 RIDER • DREAMER • EXPLORER</div>
-    <h1>NS WALE<br><span>BHAIYA</span></h1>
+    <h1 class="neon-name">NS WALE<br><span>BHAIYA</span></h1>
     <p>Welcome to my world! Bikes, journeys, amazing memories and the freedom of the open road. Follow my journey and become part of the ride.</p>
 
     <div class="buttons">
@@ -728,7 +785,51 @@ photos.forEach((filename,index)=>{
     container.appendChild(snow);
   }
 })();
-</script>
 
-</body>
-</html>
+/* NEW: NEON CURSOR TRAIL + MOBILE TOUCH EFFECT */
+(function(){
+  const colors=["#ff1600","#ff321f","#ff9d00"];
+  let lastTime=0;
+
+  function makeGlow(x,y){
+    const dot=document.createElement("span");
+    dot.className="neon-trail-particle";
+
+    const size=4+Math.random()*6;
+    const color=colors[Math.floor(Math.random()*colors.length)];
+
+    dot.style.left=x+"px";
+    dot.style.top=y+"px";
+    dot.style.width=size+"px";
+    dot.style.height=size+"px";
+    dot.style.background=color;
+    dot.style.boxShadow="0 0 8px "+color+",0 0 16px #ff321f";
+
+    document.body.appendChild(dot);
+
+    dot.addEventListener("animationend",function(){
+      dot.remove();
+    },{once:true});
+  }
+
+  function handleMove(x,y){
+    const now=performance.now();
+    if(now-lastTime<35) return;
+
+    lastTime=now;
+    makeGlow(x,y);
+  }
+
+  /* Mouse trail on computers */
+  document.addEventListener("pointermove",function(event){
+    if(event.pointerType==="mouse"){
+      handleMove(event.clientX,event.clientY);
+    }
+  },{passive:true});
+
+  /* Glowing particles when touching mobile screen */
+  document.addEventListener("pointerdown",function(event){
+    if(event.pointerType!=="mouse"){
+      for(let i=0;i<5;i++){
+        makeGlow(
+          event.clientX+(Math.rand
