@@ -421,6 +421,141 @@ viewer.addEventListener("click", (event) => {
 document.addEventListener("keydown", (event) => {
   if (event.key === "Escape") closePhoto();
 });
+
+/* 🕷️ SPIDER-MAN DARK EDITION */
+:root {
+  --red: #ff1028;
+  --gold: #168cff;
+  --spidey-blue: #168cff;
+}
+
+/* Dark cinematic background with subtle web pattern */
+body {
+  background-color: #030308;
+  background-image:
+    radial-gradient(ellipse at 15% 15%, #a00020 0%, transparent 38%),
+    radial-gradient(ellipse at 85% 55%, #08275e 0%, transparent 40%),
+    repeating-conic-gradient(
+      from 0deg at 50% 50%,
+      transparent 0deg 14deg,
+      #168cff12 14.5deg 15deg,
+      transparent 15.5deg 30deg
+    ),
+    linear-gradient(145deg, #030308, #10030a 55%, #020611);
+  background-attachment: fixed;
+}
+
+/* Spider-Man red and blue navigation */
+nav {
+  background: #050509ee;
+  border-bottom: 1px solid #ff102899;
+  box-shadow: 0 4px 22px #ff102822;
+}
+
+.logo {
+  color: #ff1028;
+  text-shadow: 0 0 12px #ff102866;
+}
+
+.links a:hover {
+  color: #168cff;
+  text-shadow: 0 0 10px #168cff99;
+}
+
+/* Cinematic hero section */
+.hero {
+  background:
+    radial-gradient(ellipse at 80% 40%, #142b68 0%, transparent 45%),
+    radial-gradient(ellipse at 15% 60%, #650014 0%, transparent 45%),
+    linear-gradient(135deg, #08040b, #10040b 55%, #030611);
+}
+
+/* Blue glowing profile border */
+.profile {
+  border-color: #168cff;
+  box-shadow:
+    0 0 18px #168cff77,
+    0 0 38px #ff102844;
+}
+
+/* Red and blue headings */
+h1 span,
+h2 span {
+  color: #ff1028;
+  text-shadow: 0 0 15px #ff102866;
+}
+
+/* Neon cards */
+.card {
+  background: linear-gradient(145deg, #17101b, #080b16);
+  border: 1px solid #168cff55;
+  box-shadow: 0 0 14px #00000055;
+}
+
+.card h3 {
+  color: #168cff;
+}
+
+.card:hover {
+  border-color: #ff1028;
+  box-shadow: 0 0 22px #ff102833;
+}
+
+/* Gallery keeps all existing photos */
+.photo {
+  border: 1px solid #168cff66;
+  box-shadow: 0 0 12px #00000077;
+}
+
+.photo:hover {
+  border-color: #ff1028;
+  box-shadow: 0 0 20px #ff102855;
+}
+
+/* Buttons */
+.btn.primary,
+#followBtn {
+  background: linear-gradient(135deg, #ff1028, #a00020);
+  box-shadow: 0 0 12px #ff102833;
+}
+
+.btn.secondary {
+  border-color: #168cff;
+  color: #168cff;
+}
+
+.btn:hover {
+  box-shadow: 0 0 20px #168cff55;
+}
+
+/* Social links and contact panel */
+.social a {
+  background: linear-gradient(145deg, #15101a, #080b14);
+  border-color: #168cff55;
+}
+
+.social a:hover {
+  border-color: #ff1028;
+  color: #168cff;
+}
+
+.contact {
+  background: linear-gradient(145deg, #160b13, #080b14);
+  border-color: #ff102877;
+  box-shadow: 0 0 20px #ff102811;
+}
+
+/* Floating music button */
+#musicBtn {
+  background: linear-gradient(135deg, #ff1028, #168cff) !important;
+  box-shadow: 0 0 20px #168cff66 !important;
+}
+
+/* Blue cinematic footer */
+footer {
+  border-top-color: #168cff55;
+    }
+    
 </script>
 </body>
 </html>
