@@ -1,0 +1,160 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#080808">
+<meta name="description" content="NS Wale Bhaiya - My biker portfolio and riding lifestyle.">
+<title>NS Wale Bhaiya | Biker Portfolio</title>
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:#080808;color:#fff;font-family:Arial,sans-serif}
+:root{--red:#ff253a;--gold:#ffc857}
+a{color:inherit;text-decoration:none}
+nav{position:sticky;top:0;z-index:5;background:#090909ed;
+padding:18px 7%;display:flex;justify-content:space-between;
+align-items:center;gap:15px;border-bottom:1px solid #ff253a55}
+.logo{color:var(--gold);font-weight:900;font-size:20px}
+.links{display:flex;gap:18px;flex-wrap:wrap;font-size:14px}
+.links a:hover{color:var(--gold)}
+.hero{min-height:85vh;padding:65px 8%;display:flex;
+align-items:center;justify-content:space-between;gap:35px;
+background:radial-gradient(ellipse at 80% 40%,#60101a 0%,#080808 65%)}
+.intro{max-width:650px;animation:appear 1s ease}
+.tag{color:var(--gold);letter-spacing:3px;font-size:12px}
+h1{font-size:clamp(42px,7vw,78px);line-height:1.05;margin:20px 0}
+h1 span{color:var(--red);text-shadow:0 0 25px #ff253a70}
+p{color:#c5c5c5;line-height:1.8}
+.buttons{display:flex;gap:12px;flex-wrap:wrap;margin-top:25px}
+.btn{padding:13px 20px;border-radius:7px;font-weight:bold;
+display:inline-block;transition:.3s}
+.primary{background:var(--red)}
+.secondary{border:1px solid var(--gold);color:var(--gold)}
+.btn:hover{transform:translateY(-4px);box-shadow:0 0 20px #ff253a55}
+.profile{width:255px;height:255px;flex-shrink:0;border-radius:50%;
+padding:8px;border:3px solid var(--gold);
+box-shadow:0 0 35px #ff253a45;animation:float 4s ease-in-out infinite}
+.profile img{width:100%;height:100%;border-radius:50%;object-fit:cover}
+section{padding:70px 8%;scroll-margin-top:70px}
+h2{text-align:center;font-size:clamp(28px,4vw,42px);margin-bottom:15px}
+h2 span{color:var(--gold)}
+.sub{text-align:center;max-width:600px;margin:0 auto 35px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:20px}
+.card{background:linear-gradient(145deg,#1b1b1b,#101010);
+border:1px solid #ffffff18;border-radius:14px;padding:25px;transition:.3s}
+.card:hover{transform:translateY(-6px);border-color:var(--red)}
+.card h3{color:var(--gold);margin:12px 0}
+.emoji{font-size:32px}
+.gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px}
+.photo{height:220px;overflow:hidden;border-radius:12px;position:relative;background:#181818}
+.photo img{width:100%;height:100%;object-fit:cover;transition:.4s}
+.photo:hover img{transform:scale(1.08)}
+.photo span{position:absolute;bottom:0;left:0;right:0;padding:25px 12px 12px;
+background:linear-gradient(transparent,#000);font-weight:bold}
+.social{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:15px}
+.social a{padding:20px;text-align:center;background:#171717;border:1px solid #333;
+border-radius:10px;transition:.3s}
+.social a:hover{border-color:var(--gold);color:var(--gold)}
+.contact{text-align:center;max-width:650px;margin:auto;padding:30px;
+border:1px solid #ff253a66;border-radius:15px;background:#121212}
+footer{text-align:center;padding:25px;color:#999;border-top:1px solid #222}
+footer span{color:var(--gold)}
+@keyframes float{50%{transform:translateY(-12px) rotate(3deg)}}
+@keyframes appear{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:700px){
+nav{align-items:flex-start;flex-direction:column}
+.hero{flex-direction:column-reverse;text-align:center;padding:50px 6%}
+.profile{width:190px;height:190px}
+.buttons{justify-content:center}
+section{padding:55px 6%}
+.gallery{grid-template-columns:repeat(2,minmax(0,1fr))}
+.photo{height:165px}
+}
+@media(max-width:380px){.gallery{grid-template-columns:1fr}}
+</style>
+</head>
+
+<body>
+<nav>
+  <a class="logo" href="#home">⚡ NS WALE BHAIYA</a>
+  <div class="links">
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#social">Social</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<main>
+<section class="hero" id="home">
+  <div class="intro">
+    <div class="tag">🏍 RIDER • DREAMER • EXPLORER</div>
+    <h1>NS WALE<br><span>BHAIYA</span></h1>
+    <p>Welcome to my world! Bikes, journeys, amazing memories and the freedom of the open road. Follow my journey and become part of the ride.</p>
+    <div class="buttons">
+      <a class="btn primary" href="#gallery">Explore Gallery</a>
+      <a class="btn secondary" href="#social">Follow Me</a>
+    </div>
+  </div>
+  <div class="profile">
+    <!-- Replace this sample photo with your own photo URL -->
+    <img src="https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&w=600&q=85" alt="Biker profile">
+  </div>
+</section>
+
+<section id="about">
+  <h2>ABOUT <span>MY WORLD</span></h2>
+  <p class="sub">My passion, my lifestyle and the journey I love.</p>
+  <div class="cards">
+    <div class="card"><div class="emoji">🏍️</div><h3>Bike Lover</h3><p>Celebrating bike culture and the excitement of every journey.</p></div>
+    <div class="card"><div class="emoji">🛣️</div><h3>Road Explorer</h3><p>Discovering new places and creating unforgettable memories.</p></div>
+    <div class="card"><div class="emoji">🔥</div><h3>My Own Style</h3><p>Being myself, chasing dreams and building my own identity.</p></div>
+  </div>
+</section>
+
+<section id="gallery">
+  <h2>MY <span>GALLERY</span></h2>
+  <p class="sub">Sample images below. Replace them with your own photos.</p>
+  <div class="gallery">
+    <div class="photo"><img loading="lazy" src="https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&w=700&q=80" alt="Motorcycle"><span>Ride Mode</span></div>
+    <div class="photo"><img loading="lazy" src="https://images.unsplash.com/photo-1558981403-c5f9899a28bc?auto=format&fit=crop&w=700&q=80" alt="Bike details"><span>My Machine</span></div>
+    <div class="photo"><img loading="lazy" src="https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&w=700&q=80" alt="Riding inspiration"><span>Road Stories</span></div>
+    <div class="photo"><img loading="lazy" src="https://images.unsplash.com/photo-1558981403-c5f9899a28bc?auto=format&fit=crop&w=700&q=80" alt="Motorcycle view"><span>Bike Life</span></div>
+    <div class="photo"><img loading="lazy" src="https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&w=700&q=80" alt="Adventure ride"><span>Adventure</span></div>
+    <div class="photo"><img loading="lazy" src="https://images.unsplash.com/photo-1558981403-c5f9899a28bc?auto=format&fit=crop&w=700&q=80" alt="Bike passion"><span>Ride Forever</span></div>
+  </div>
+</section>
+
+<section id="social">
+  <h2>CONNECT <span>WITH ME</span></h2>
+  <p class="sub">Follow my journey on social media.</p>
+  <div class="social">
+    <!-- Replace # with your real social profile links -->
+    <a href="#" target="_blank" rel="noopener">▶ YouTube</a>
+    <a href="#" target="_blank" rel="noopener">📸 Instagram</a>
+    <a href="#" target="_blank" rel="noopener">💬 WhatsApp</a>
+    <a href="#" target="_blank" rel="noopener">✈ Telegram Channel</a>
+    <a href="#" target="_blank" rel="noopener">👤 Telegram Profile</a>
+  </div>
+</section>
+
+<section id="contact">
+  <h2>LET'S <span>CONNECT</span></h2>
+  <div class="contact">
+    <p>Have a question or want to connect? Send me an email.</p>
+    <!-- Replace your-email@example.com with your email address -->
+    <a class="btn primary" href="mailto:your-email@example.com">✉ Contact Me</a>
+  </div>
+</section>
+</main>
+
+<footer>
+  © <span>NS Wale Bhaiya</span> | Biker Portfolio<br>
+  Ride responsibly. Make every journey memorable.
+</footer>
+</body>
+</html>
