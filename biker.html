@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -141,78 +142,59 @@ body {
 footer {
   border-top-color: rgba(255, 20, 40, 0.4);
 }
-  
+
 /* FLOATING ANIMATION FOR ALL TEXT */
 @keyframes allTextFloat {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-6px);
-  }
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
 }
 
-/* Logo and navigation text */
 .logo,
 .links a {
   display: inline-block;
   animation: allTextFloat 3s ease-in-out infinite;
 }
 
-/* All headings and paragraphs */
 h1, h2, h3, p, .tag {
   animation: allTextFloat 3s ease-in-out infinite;
 }
 
-/* Buttons and gallery labels */
 .btn,
 #followBtn,
 .photo span {
   animation: allTextFloat 3s ease-in-out infinite;
 }
 
-/* Social links and card text */
 .social a,
 .card h3,
 .card p {
   animation: allTextFloat 3s ease-in-out infinite;
 }
 
-/* Floating footer text */
 footer,
 footer span {
   animation: allTextFloat 3s ease-in-out infinite;
 }
 
-/* Accessibility: respect reduced-motion preference */
-  
 /* RESTORE FLOATING ANIMATION */
 @keyframes restoreFloat {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-8px);
-  }
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
 }
 
-/* Gallery ke saare photos float honge */
 .photo {
   animation: restoreFloat 3s ease-in-out infinite;
 }
 
-/* Profile photo floating */
 .profile {
   animation: float 4s ease-in-out infinite;
 }
 
-/* Cards aur social boxes floating */
 .card,
 .social a {
   animation: restoreFloat 3s ease-in-out infinite;
 }
 
-/* Saare main text aur headings floating */
 .intro,
 .tag,
 h1,
@@ -223,7 +205,7 @@ p,
 footer {
   animation: restoreFloat 3s ease-in-out infinite;
 }
-  
+
 @media (prefers-reduced-motion: reduce) {
   .logo,
   .links a,
@@ -234,7 +216,7 @@ footer {
     animation: none;
   }
 }
-  
+
 /* Social button styling */
 #social .social a {
   display: flex;
@@ -257,18 +239,48 @@ footer {
   box-shadow: 0 0 18px #ff263844;
 }
 
-#social .social a:nth-child(1) {
-  border-color: #229ED9;
+#social .social a:nth-child(1) { border-color: #229ED9; }
+#social .social a:nth-child(2) { border-color: #C13584; }
+#social .social a:nth-child(3) { border-color: #FF0033; }
+
+/* WHITE SNOWFALL ONLY */
+#falling-effects {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 9998;
+  contain: layout paint;
 }
 
-#social .social a:nth-child(2) {
-  border-color: #C13584;
+.falling-item {
+  position: absolute;
+  top: -40px;
+  display: block;
+  line-height: 1;
+  color: white;
+  user-select: none;
+  pointer-events: none;
+  will-change: transform;
+  animation: snow-fall linear infinite;
 }
 
-#social .social a:nth-child(3) {
-  border-color: #FF0033;
+@keyframes snow-fall {
+  0% {
+    transform: translate3d(0, -40px, 0) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.9;
+  }
+  90% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translate3d(35px, 110vh, 0) rotate(360deg);
+    opacity: 0;
+  }
 }
-  
 </style>
 </head>
 
@@ -337,7 +349,6 @@ followBtn.addEventListener("click", function () {
 });
 </script>
 
-
 <section id="about">
   <h2>ABOUT <span>ME</span></h2>
   <p class="sub">My journey, my community, my comeback.</p>
@@ -371,12 +382,10 @@ followBtn.addEventListener("click", function () {
   </div>
 </section>
 
-
 <section id="gallery">
   <h2>MY <span>GALLERY</span></h2>
   <p class="sub">Sample images below. Replace them with your own photos.</p>
-<div class="gallery" id="photoGallery"></div>
-  
+  <div class="gallery" id="photoGallery"></div>
 </section>
 
 <section id="social">
@@ -438,7 +447,6 @@ btn.addEventListener("click", async function () {
   }
 });
 </script>
-  
 
 <script>
 const gallery = document.getElementById("photoGallery");
@@ -477,13 +485,34 @@ photos.forEach((filename, index) => {
     card.remove();
   };
 
-  
-
   card.appendChild(img);
-gallery.appendChild(card);
-  
+  gallery.appendChild(card);
 });
 </script>
-  
+
+<!-- White snowflakes only -->
+<div id="falling-effects" aria-hidden="true"></div>
+
+<script>
+(() => {
+  const container = document.getElementById("falling-effects");
+  if (!container || container.childElementCount) return;
+
+  const symbols = ["❄️", "❄", "❅", "❆"];
+  const total = 30;
+
+  for (let i = 0; i < total; i++) {
+    const snow = document.createElement("span");
+    snow.className = "falling-item";
+    snow.textContent = symbols[i % symbols.length];
+    snow.style.left = Math.random() * 100 + "%";
+    snow.style.fontSize = (12 + Math.random() * 12) + "px";
+    snow.style.animationDuration = (10 + Math.random() * 10) + "s";
+    snow.style.animationDelay = (-Math.random() * 20) + "s";
+    container.appendChild(snow);
+  }
+})();
+</script>
+
 </body>
 </html>
