@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -133,23 +134,84 @@ p{color:var(--muted);line-height:1.8}
   align-items:center;
 }
 
+/* PROFILE + ANIMATED FIRE RING */
 .profile{
+  position:relative;
+  isolation:isolate;
+  flex-shrink:0;
   width:245px;
   height:245px;
   border-radius:50%;
   padding:6px;
-  border:3px solid #a90012;
+  border:3px solid #ff321f;
   background:#090000;
-  box-shadow:0 0 24px #8b000033;
-  animation:floatProfile 4.5s ease-in-out infinite;
+  box-shadow:0 0 12px #ff1600,0 0 28px #ff1600;
+  animation:
+    floatProfile 4.5s ease-in-out infinite,
+    fireGlow 1.2s ease-in-out infinite alternate;
+}
+
+.profile::before{
+  content:"";
+  position:absolute;
+  inset:-10px;
+  border-radius:50%;
+  background:conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    #ff1600 45deg,
+    #ff9d00 85deg,
+    #ff2600 125deg,
+    #ff6a00 180deg,
+    transparent 225deg,
+    #ff1600 280deg,
+    #ff9d00 320deg,
+    transparent 360deg
+  );
+  z-index:-1;
+  filter:blur(7px);
+  animation:fireRotate 1.8s linear infinite;
+  pointer-events:none;
+}
+
+.profile::after{
+  content:"";
+  position:absolute;
+  inset:-5px;
+  border-radius:50%;
+  border:2px solid #ff4b18;
+  box-shadow:0 0 12px #ff2600,inset 0 0 8px #ff1600;
+  pointer-events:none;
+  animation:firePulse .7s ease-in-out infinite alternate;
 }
 
 .profile img{
+  position:relative;
+  z-index:1;
   width:100%;
   height:100%;
   border-radius:50%;
   object-fit:cover;
   display:block;
+}
+
+@keyframes fireRotate{
+  from{transform:rotate(0deg)}
+  to{transform:rotate(360deg)}
+}
+
+@keyframes fireGlow{
+  from{
+    box-shadow:0 0 10px #ff1600,0 0 18px #b00012;
+  }
+  to{
+    box-shadow:0 0 25px #ff2600,0 0 40px #b00012;
+  }
+}
+
+@keyframes firePulse{
+  from{opacity:.55}
+  to{opacity:1}
 }
 
 .follow-instagram{
@@ -237,9 +299,7 @@ p{color:var(--muted);line-height:1.8}
   background:linear-gradient(145deg,#260309,#0b0304);
 }
 
-.social a span{
-  overflow-wrap:anywhere;
-}
+.social a span{overflow-wrap:anywhere}
 
 .social a:focus-visible,
 .btn:focus-visible,
@@ -335,14 +395,8 @@ footer span{color:#c00016}
   50%{transform:translateY(-8px)}
 }
 
-.logo,
-.links a,
-.tag,
-h1,h2,h3,
-.intro p,
-.buttons .btn,
-.social-heading,
-footer{
+.logo,.links a,.tag,h1,h2,h3,
+.intro p,.buttons .btn,.social-heading,footer{
   animation:floatText 3.5s ease-in-out infinite;
 }
 
@@ -374,7 +428,7 @@ footer{
   100%{transform:translate3d(25px,110vh,0) rotate(220deg);opacity:0}
 }
 
-/* MUSIC BUTTON — ORIGINAL POSITION AND SIZE */
+/* MUSIC BUTTON — ORIGINAL POSITION */
 #musicBtn{
   position:fixed;
   bottom:20px;
@@ -479,7 +533,6 @@ footer{
       <img src="1750246498384.jpg" alt="NS Wale Bhaiya profile">
     </div>
 
-    <!-- INSTAGRAM FOLLOW BUTTON -->
     <a class="follow-instagram"
        href="https://www.instagram.com/NS_Wale_Bhaiya/"
        target="_blank"
@@ -494,12 +547,10 @@ footer{
 
     <div class="profile-handle">@NS_Wale_Bhaiya</div>
 
-    <!-- SOCIAL LINKS DIRECTLY BELOW PROFILE -->
     <div class="social-area" id="social">
       <div class="social-heading">✦ CONNECT WITH ME ✦</div>
 
       <div class="social">
-
         <a href="https://youtube.com/@ns_wale_bhaiya?si=vP4jl76WlRu68x-m"
            target="_blank" rel="noopener noreferrer"
            aria-label="Visit YouTube channel">
@@ -537,13 +588,11 @@ footer{
           </svg>
           <span>Join Me</span>
         </a>
-
       </div>
     </div>
   </div>
 </section>
 
-<!-- ABOUT ME MOVED UP, DIRECTLY AFTER THE PROFILE/SOCIAL AREA -->
 <section id="about">
   <h2>ABOUT <span>ME</span></h2>
   <p class="sub">My journey, my community, my comeback.</p>
