@@ -305,35 +305,18 @@ followBtn.addEventListener("click", function () {
   © <span>NS Wale Bhaiya</span> | Biker Portfolio<br>
   Ride responsibly. Make every journey memorable.
 </footer>
-
-<!-- NS Wale Bhaiya: Auto Background Music -->
-<div id="youtubePlayer"
-     style="position:fixed;width:1px;height:1px;
-     overflow:hidden;bottom:0;right:0;z-index:-1;">
-</div>
+<!-- Background Music -->
+<video id="bgMusic" autoplay loop playsinline
+       style="position:fixed;width:1px;height:1px;opacity:0;">
+  <source src="apna%20bana%20le%20-%20Arijit%20Singh%20%5Bedit%20audio%5D%28720P_HD%29.mp4" type="video/mp4">
+</video>
 
 <script>
-(function () {
-  const songId = "MlP7ug7b-uw";
-
-  function startMusic() {
-    if (document.getElementById("autoMusicFrame")) return;
-
-    const frame = document.createElement("iframe");
-    frame.id = "autoMusicFrame";
-    frame.width = "1";
-    frame.height = "1";
-    frame.allow = "autoplay; encrypted-media";
-    frame.src =
-      "https://www.youtube.com/embed/" + songId +
-      "?autoplay=1&controls=0&start=0&end=60&playsinline=1";
-
-    document.getElementById("youtubePlayer").appendChild(frame);
-  }
-
-  document.addEventListener("click", startMusic, { once: true });
-})();
+const music = document.getElementById("bgMusic");
+music.volume = 0.5;
+music.play().catch(() => {});
 </script>
+
 <script>
 const gallery = document.getElementById("photoGallery");
 
