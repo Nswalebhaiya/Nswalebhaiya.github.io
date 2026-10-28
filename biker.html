@@ -282,46 +282,24 @@ footer {
   }
 }
 
-/* BIGGER MUSIC BUTTON — TOP RIGHT */
+/* MUSIC BUTTON: ORIGINAL POSITION, JUST A LITTLE BIGGER */
 #musicBtn {
   position: fixed;
-  top: 90px;
-  right: 16px;
-  bottom: auto;
+  bottom: 20px;
+  right: 20px;
   z-index: 99999;
-  min-width: 190px;
-  min-height: 60px;
-  padding: 16px 22px;
-  border: 2px solid #ff5263;
-  border-radius: 16px;
-  background: linear-gradient(135deg, #ff2638, #850010);
+  width: auto;
+  height: auto;
+  padding: 12px 17px;
+  border: 0;
+  border-radius: 10px;
+  background: #ff1028;
   color: white;
   font-family: Arial, sans-serif;
-  font-size: 17px;
+  font-size: 15px;
   font-weight: bold;
-  box-shadow: 0 0 18px #ff102866;
+  box-shadow: 0 4px 12px #0006;
   cursor: pointer;
-  transition: transform .2s ease, box-shadow .2s ease;
-}
-
-#musicBtn:hover {
-  transform: scale(1.04);
-  box-shadow: 0 0 24px #ff263899;
-}
-
-#musicBtn:active {
-  transform: scale(.97);
-}
-
-@media(max-width:480px) {
-  #musicBtn {
-    top: 85px;
-    right: 10px;
-    min-width: 175px;
-    min-height: 58px;
-    padding: 14px 18px;
-    font-size: 16px;
-  }
 }
 </style>
 </head>
@@ -439,7 +417,7 @@ followBtn.addEventListener("click", function () {
   <h2>LET'S <span>CONNECT</span></h2>
   <div class="contact">
     <p>Have a question or want to connect? Send me an email.</p>
-    <a class="btn primary" href="mailto: richxansari@gmail.com">✉ Contact Me</a>
+    <a class="btn primary" href="mailto:richxansari@gmail.com">✉ Contact Me</a>
   </div>
 </section>
 </main>
@@ -449,13 +427,13 @@ followBtn.addEventListener("click", function () {
   Ride responsibly. Make every journey memorable.
 </footer>
 
-<!-- Background Music -->
+<!-- Background Music Button -->
 <video id="bgMusic" loop playsinline preload="auto" style="display:none;">
   <source src="apna%20bana%20le%20-%20Arijit%20Singh%20%5Bedit%20audio%5D%28720P_HD%29.mp4" type="video/mp4">
 </video>
 
-<button id="musicBtn" type="button" aria-label="Tap to Play Music">
-  Tap to Play Music
+<button id="musicBtn" type="button" aria-label="Play Music">
+  Play Music
 </button>
 
 <script>
@@ -471,14 +449,14 @@ btn.addEventListener("click", async function () {
       btn.textContent = "Pause Music";
       btn.setAttribute("aria-label", "Pause Music");
     } catch (error) {
-      btn.textContent = "Tap to Play Music";
-      btn.setAttribute("aria-label", "Tap to Play Music");
+      btn.textContent = "Play Music";
+      btn.setAttribute("aria-label", "Play Music");
       alert("Song nahi chala. MP4 file ka naam aur location check karo.");
     }
   } else {
     music.pause();
-    btn.textContent = "Tap to Play Music";
-    btn.setAttribute("aria-label", "Tap to Play Music");
+    btn.textContent = "Play Music";
+    btn.setAttribute("aria-label", "Play Music");
   }
 });
 </script>
