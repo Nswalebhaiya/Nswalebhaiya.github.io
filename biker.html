@@ -120,8 +120,8 @@ section{padding:55px 6%}
     + Follow
   </button>
 
-  <p id="followMessage" style="margin-top:12px;font-size:13px;">
-    Join the riding community!
+  <p id="followMessage" style="margin-top:12px;font-size:13px;color:#bbb;">
+  Join the NS Wale Bhaiya community ❤️
   </p>
 </section>
 
@@ -131,20 +131,19 @@ section{padding:55px 6%}
 
   let following = false;
 
-  followBtn.addEventListener("click", function () {
-    following = !following;
+followBtn.addEventListener("click", function () {
+  following = !following;
 
-    if (following) {
-      followBtn.textContent = "✓ Following";
-      followBtn.style.background = "#333";
-      followMessage.textContent = "Thanks for following NS Wale Bhaiya!";
-    } else {
-      followBtn.textContent = "+ Follow";
-      followBtn.style.background = "#ff253a";
-      followMessage.textContent = "You unfollowed this demo profile.";
-    }
-  });
-</script>
+  if (following) {
+    followBtn.textContent = "✓ Following";
+    followBtn.style.background = "#333";
+    followMessage.textContent = "Thanks for your support! ❤️";
+  } else {
+    followBtn.textContent = "+ Follow";
+    followBtn.style.background = "#ff253a";
+    followMessage.textContent = "Join the NS Wale Bhaiya community ❤️";
+  }
+});
   
 <section id="about">
   <h2>ABOUT <span>MY WORLD</span></h2>
