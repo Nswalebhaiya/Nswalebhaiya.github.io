@@ -185,6 +185,45 @@ footer span {
 }
 
 /* Accessibility: respect reduced-motion preference */
+  
+/* RESTORE FLOATING ANIMATION */
+@keyframes restoreFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+/* Gallery ke saare photos float honge */
+.photo {
+  animation: restoreFloat 3s ease-in-out infinite;
+}
+
+/* Profile photo floating */
+.profile {
+  animation: float 4s ease-in-out infinite;
+}
+
+/* Cards aur social boxes floating */
+.card,
+.social a {
+  animation: restoreFloat 3s ease-in-out infinite;
+}
+
+/* Saare main text aur headings floating */
+.intro,
+.tag,
+h1,
+h2,
+h3,
+p,
+.contact,
+footer {
+  animation: restoreFloat 3s ease-in-out infinite;
+}
+  
 @media (prefers-reduced-motion: reduce) {
   .logo,
   .links a,
