@@ -305,17 +305,42 @@ followBtn.addEventListener("click", function () {
   © <span>NS Wale Bhaiya</span> | Biker Portfolio<br>
   Ride responsibly. Make every journey memorable.
 </footer>
-<!-- Background Music -->
-<video id="bgMusic" autoplay loop playsinline
-       style="position:fixed;width:1px;height:1px;opacity:0;">
+
+<!-- Background Music Button -->
+<video id="bgMusic" loop playsinline preload="auto" style="display:none;">
   <source src="apna%20bana%20le%20-%20Arijit%20Singh%20%5Bedit%20audio%5D%28720P_HD%29.mp4" type="video/mp4">
 </video>
 
+<button id="musicBtn" type="button" aria-label="Play or pause music"
+style="position:fixed;bottom:20px;right:20px;z-index:99999;
+width:55px;height:55px;border:0;border-radius:50%;
+background:#ff1028;color:white;font-size:24px;
+box-shadow:0 4px 12px #0006;cursor:pointer;">
+🎵
+</button>
+
 <script>
 const music = document.getElementById("bgMusic");
+const btn = document.getElementById("musicBtn");
+
 music.volume = 0.5;
-music.play().catch(() => {});
+
+btn.addEventListener("click", async function () {
+  if (music.paused) {
+    try {
+      await music.play();
+      btn.textContent = "⏸️";
+    } catch (error) {
+      btn.textContent = "🎵";
+      alert("Song nahi chala. MP4 file ka naam aur location check karo.");
+    }
+  } else {
+    music.pause();
+    btn.textContent = "🎵";
+  }
+});
 </script>
+  
 
 <script>
 const gallery = document.getElementById("photoGallery");
