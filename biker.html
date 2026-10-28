@@ -74,6 +74,124 @@ section{padding:55px 6%}
 .photo{height:165px}
 }
 @media(max-width:380px){.gallery{grid-template-columns:1fr}}
+
+/* CINEMATIC NS WALE BHAIYA INTRO */
+#nsIntro {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background:
+    radial-gradient(ellipse at 50% 70%, #4a0710 0%, #160609 38%, #030303 78%);
+  animation: nsIntroExit 0.8s ease-in 4.8s forwards;
+}
+
+#nsIntro .road {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 13%;
+  height: 3px;
+  background: #ff253a;
+  box-shadow: 0 0 12px #ff253a, 0 0 35px #ff253a;
+  opacity: 0.8;
+}
+
+#nsIntro .bike {
+  position: relative;
+  z-index: 2;
+  font-size: clamp(70px, 20vw, 130px);
+  line-height: 1;
+  filter: drop-shadow(0 0 12px #ff253a);
+  animation: nsBikeEnter 2s cubic-bezier(.15,.7,.2,1) both;
+}
+
+#nsIntro .bikeGlow {
+  position: absolute;
+  width: 180px;
+  height: 35px;
+  border-radius: 50%;
+  background: #ff253a;
+  filter: blur(35px);
+  opacity: 0;
+  animation: nsGlow 2s ease 1.6s forwards;
+}
+
+#nsIntro h1 {
+  z-index: 2;
+  margin: 35px 12px 10px;
+  color: #ffc857;
+  font-size: clamp(25px, 7vw, 43px);
+  font-weight: 900;
+  letter-spacing: 2px;
+  text-align: center;
+  text-shadow: 0 0 10px #ff253a, 0 0 28px #a30018;
+  opacity: 0;
+  transform: scale(0.75);
+  animation: nsTitleReveal 1s ease-out 2s forwards;
+}
+
+#nsIntro p {
+  z-index: 2;
+  margin: 0;
+  color: #f5f5f5;
+  font-size: 11px;
+  letter-spacing: 4px;
+  text-align: center;
+  opacity: 0;
+  animation: nsTagReveal 0.8s ease 2.7s forwards;
+}
+
+@keyframes nsBikeEnter {
+  0% {
+    transform: translateX(-120vw) scale(.65);
+    opacity: 0;
+  }
+  65% {
+    transform: translateX(15px) scale(1.08);
+    opacity: 1;
+  }
+  82% {
+    transform: translateX(-8px) scale(.98);
+  }
+  100% {
+    transform: translateX(0) scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes nsGlow {
+  to { opacity: .75; }
+}
+
+@keyframes nsTitleReveal {
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes nsTagReveal {
+  to { opacity: 1; }
+}
+
+@keyframes nsIntroExit {
+  to {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #nsIntro,
+  #nsIntro * {
+    animation-duration: 0.01ms !important;
+    animation-delay: 0ms !important;
+  }
+}
+  
 </style>
 </head>
 
@@ -205,5 +323,13 @@ followBtn.addEventListener("click", function () {
   © <span>NS Wale Bhaiya</span> | Biker Portfolio<br>
   Ride responsibly. Make every journey memorable.
 </footer>
+<!-- NS WALE BHAIYA CINEMATIC INTRO -->
+<div id="nsIntro" aria-label="NS Wale Bhaiya cinematic intro">
+  <div class="bikeGlow"></div>
+  <div class="bike" aria-hidden="true">🏍️</div>
+  <div class="road"></div>
+  <h1>NS WALE BHAIYA</h1>
+  <p>RIDER • DREAMER • EXPLORER</p>
+</div>
 </body>
 </html>
