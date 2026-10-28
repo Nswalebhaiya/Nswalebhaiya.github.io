@@ -334,7 +334,51 @@ followBtn.addEventListener("click", function () {
   window.addEventListener("load", startMusic);
 })();
 </script>
-</body>
+<script>
+const gallery = document.getElementById("photoGallery");
+
+const photos = [
+  "IMG_20260224_150506275_HDR~2.jpg",
+  "IMG_20260224_150010292_HDR~2.jpg",
+  "IMG_20260404_153332485_HDR.jpg",
+  "IMG_20260628_102930333~2.jpg",
+  "1758099541333.jpg",
+  "1750246498384.jpg",
+  "-ysx4j7.jpg",
+  "IMG_20250402_224835.jpg",
+  "IMG_20250331_165252.jpg",
+  "-naccvq.jpg",
+  "Photoroom-20241001_185513.png",
+  "1727621082503.jpg",
+  "IMG_20240303_193616_401.jpg",
+  "IMG_20240105_184351_099.jpg",
+  "IMG_20240105_184351_892.jpg",
+  "IMG_20240105_184351_408.jpg",
+  "IMG_20240709_102901_307.jpg",
+  "IMG_20240105_184359_739.jpg"
+];
+
+photos.forEach((filename, index) => {
+  const card = document.createElement("div");
+  card.className = "photo";
+
+  const img = document.createElement("img");
+  img.src = filename;
+  img.alt = "Biker photo " + (index + 1);
+  img.loading = "lazy";
+
+  img.onerror = function () {
+    card.remove();
+  };
+
+  const label = document.createElement("span");
+  label.textContent = "Ride Memory " + (index + 1);
+
+  card.appendChild(img);
+  card.appendChild(label);
+  gallery.appendChild(card);
+});
+</script>
   
 </body>
 </html>
