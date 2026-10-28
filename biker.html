@@ -9,448 +9,406 @@
 
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
+
 html{scroll-behavior:smooth}
-body{background:#080808;color:#fff;font-family:Arial,sans-serif}
-:root{--red:#ff253a;--gold:#ffc857}
-a{color:inherit;text-decoration:none}
-nav{position:sticky;top:0;z-index:5;background:#090909ed;
-padding:18px 7%;display:flex;justify-content:space-between;
-align-items:center;gap:15px;border-bottom:1px solid #ff253a55}
-.logo{color:var(--gold);font-weight:900;font-size:20px}
-.links{display:flex;gap:18px;flex-wrap:wrap;font-size:14px}
-.links a:hover{color:var(--gold)}
-.hero{min-height:85vh;padding:65px 8%;display:flex;
-align-items:center;justify-content:space-between;gap:35px;
-background:radial-gradient(ellipse at 80% 40%,#60101a 0%,#080808 65%)}
-.intro{max-width:650px;animation:appear 1s ease}
-.tag{color:var(--gold);letter-spacing:3px;font-size:12px}
-h1{font-size:clamp(42px,7vw,78px);line-height:1.05;margin:20px 0}
-h1 span{color:var(--red);text-shadow:0 0 25px #ff253a70}
-p{color:#c5c5c5;line-height:1.8}
-.buttons{display:flex;gap:12px;flex-wrap:wrap;margin-top:25px}
-.btn{padding:13px 20px;border-radius:7px;font-weight:bold;
-display:inline-block;transition:.3s}
-.primary{background:var(--red)}
-.secondary{border:1px solid var(--gold);color:var(--gold)}
-.btn:hover{transform:translateY(-4px);box-shadow:0 0 20px #ff253a55}
-.profile{width:255px;height:255px;flex-shrink:0;border-radius:50%;
-padding:8px;border:3px solid var(--gold);
-box-shadow:0 0 35px #ff253a45;animation:float 4s ease-in-out infinite}
-.profile img{width:100%;height:100%;border-radius:50%;object-fit:cover}
-section{padding:70px 8%;scroll-margin-top:70px}
-h2{text-align:center;font-size:clamp(28px,4vw,42px);margin-bottom:15px}
-h2 span{color:var(--gold)}
-.sub{text-align:center;max-width:600px;margin:0 auto 35px}
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:20px}
-.card{background:linear-gradient(145deg,#1b1b1b,#101010);
-border:1px solid #ffffff18;border-radius:14px;padding:25px;transition:.3s}
-.card:hover{transform:translateY(-6px);border-color:var(--red)}
-.card h3{color:var(--gold);margin:12px 0}
-.emoji{font-size:32px}
-.gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px}
-.photo{height:220px;overflow:hidden;border-radius:12px;position:relative;background:#181818}
-.photo img{width:100%;height:100%;object-fit:cover;transition:transform .4s;transform-style:preserve-3d;will-change:transform}
-.photo:hover img{transform:scale(1.08)}
-.photo span{position:absolute;bottom:0;left:0;right:0;padding:25px 12px 12px;
-background:linear-gradient(transparent,#000);font-weight:bold}
-.social{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:15px}
-.social a{padding:20px;text-align:center;background:#171717;border:1px solid #333;
-border-radius:10px;transition:.3s}
-.social a:hover{border-color:var(--gold);color:var(--gold)}
-.contact{text-align:center;max-width:650px;margin:auto;padding:30px;
-border:1px solid #ff253a66;border-radius:15px;background:#121212}
-footer{text-align:center;padding:25px;color:#999;border-top:1px solid #222}
-footer span{color:var(--gold)}
-@keyframes float{50%{transform:translateY(-12px) rotate(3deg)}}
-@keyframes appear{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
 
-@media(max-width:700px){
-nav{align-items:flex-start;flex-direction:column}
-.hero{flex-direction:column-reverse;text-align:center;padding:50px 6%}
-.profile{width:190px;height:190px}
-.buttons{justify-content:center}
-section{padding:55px 6%}
-.gallery{grid-template-columns:repeat(2,minmax(0,1fr))}
-.photo{height:165px}
-}
-@media(max-width:380px){.gallery{grid-template-columns:1fr}}
-
-/* NS WALE BHAIYA — RED & BLACK THEME */
-:root {
-  --bg: #050505;
-  --panel: rgba(12, 5, 7, 0.94);
-  --red: #ff1028;
-  --red-dark: #79000e;
-  --gold: #ff2638;
-  --text: #f7f5f2;
-  --muted: #c0b8bb;
-  --line: rgba(255, 20, 40, 0.55);
-  --glow-red: 0 0 12px rgba(255, 16, 40, 0.65),
-              0 0 28px rgba(255, 16, 40, 0.25);
-  --glow-gold: 0 0 12px rgba(255, 16, 40, 0.45);
-}
-
-body {
+body{
   background:
-    radial-gradient(ellipse at 15% 10%,
-      rgba(180, 0, 20, 0.25), transparent 40%),
-    radial-gradient(ellipse at 90% 55%,
-      rgba(255, 0, 25, 0.12), transparent 35%),
-    linear-gradient(145deg, #030303, #150407 55%, #050505);
+    radial-gradient(ellipse at 15% 10%,rgba(180,0,20,.18),transparent 40%),
+    linear-gradient(145deg,#030303,#120407 55%,#050505);
+  color:#fff;
+  font-family:Arial,sans-serif;
+  overflow-x:hidden;
 }
 
-.topbar {
-  background: rgba(3, 3, 3, 0.94);
-  border-bottom-color: rgba(255, 20, 40, 0.65);
+:root{
+  --red:#ff1028;
+  --gold:#ff2638;
+  --muted:#c5c5c5;
 }
 
-.hero::before {
-  background: linear-gradient(
-    120deg,
-    rgba(255, 0, 25, 0.22),
-    transparent 48%,
-    rgba(100, 0, 12, 0.18)
-  );
+a{color:inherit;text-decoration:none}
+
+nav{
+  position:sticky;
+  top:0;
+  z-index:10;
+  background:rgba(5,5,5,.96);
+  padding:16px 7%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:15px;
+  border-bottom:1px solid #ff253a66;
 }
 
-.panel,
-.social-card,
-.gallery-item {
-  border-color: rgba(255, 20, 40, 0.45);
+.logo{
+  color:#ff2638;
+  font-weight:900;
+  font-size:20px;
 }
 
-.feature-icon,
-.social-icon {
-  color: #ff2638;
-  background: rgba(255, 20, 40, 0.12);
-  border-color: rgba(255, 20, 40, 0.4);
+.links{
+  display:flex;
+  gap:18px;
+  flex-wrap:wrap;
+  font-size:14px;
 }
 
-.social-card:nth-child(2) .social-icon,
-.social-card:nth-child(4) .social-icon {
-  color: #ff2638;
-  background: rgba(255, 20, 40, 0.12);
-  border-color: rgba(255, 20, 40, 0.4);
+.links a{transition:color .2s}
+.links a:hover{color:#ff6677}
+
+.hero{
+  min-height:85vh;
+  padding:65px 8%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:35px;
+  background:radial-gradient(ellipse at 80% 40%,#501019 0%,transparent 65%);
 }
 
-.contact-form input:focus,
-.contact-form textarea:focus {
-  border-color: #ff2638;
-  box-shadow: var(--glow-red);
+.intro{
+  max-width:650px;
+  animation:appear .7s ease-out both;
 }
 
-footer {
-  border-top-color: rgba(255, 20, 40, 0.4);
+.tag{
+  color:#ff6677;
+  letter-spacing:3px;
+  font-size:12px;
 }
 
-/* FLOATING ANIMATION FOR TEXT */
-@keyframes allTextFloat {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-6px); }
+h1{
+  font-size:clamp(42px,7vw,78px);
+  line-height:1.05;
+  margin:20px 0;
 }
 
-.logo,
-.links a {
-  display: inline-block;
-  animation: allTextFloat 3s ease-in-out infinite;
+h1 span{
+  color:var(--red);
+  text-shadow:0 0 18px #ff253a50;
 }
 
-h1, h2, h3, p, .tag {
-  animation: allTextFloat 3s ease-in-out infinite;
+p{color:var(--muted);line-height:1.8}
+
+.buttons{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+  margin-top:25px;
 }
 
-.btn,
-#followBtn,
-.photo span {
-  animation: allTextFloat 3s ease-in-out infinite;
+.btn{
+  padding:13px 20px;
+  border-radius:7px;
+  font-weight:bold;
+  display:inline-block;
+  transition:transform .2s,box-shadow .2s;
 }
 
-.social a,
-.card h3,
-.card p {
-  animation: allTextFloat 3s ease-in-out infinite;
+.primary{background:var(--red);color:white}
+.secondary{border:1px solid #ff6677;color:#ff6677}
+
+.btn:hover{
+  transform:translateY(-2px);
+  box-shadow:0 0 12px #ff253a35;
 }
 
-footer,
-footer span {
-  animation: allTextFloat 3s ease-in-out infinite;
+.profile{
+  width:255px;
+  height:255px;
+  flex-shrink:0;
+  border-radius:50%;
+  padding:7px;
+  border:2px solid #ff2638;
+  box-shadow:0 0 22px #ff253a30;
+  animation:profileFloat 5s ease-in-out infinite;
 }
 
-/* RESTORE FLOATING ANIMATION */
-@keyframes restoreFloat {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-8px); }
+.profile img{
+  width:100%;
+  height:100%;
+  border-radius:50%;
+  object-fit:cover;
 }
 
-.photo {
-  animation: restoreFloat 3s ease-in-out infinite;
+section{
+  padding:65px 8%;
+  scroll-margin-top:75px;
 }
 
-.profile {
-  animation: float 4s ease-in-out infinite;
+h2{
+  text-align:center;
+  font-size:clamp(28px,4vw,42px);
+  margin-bottom:15px;
 }
 
-.card,
-.social a {
-  animation: restoreFloat 3s ease-in-out infinite;
+h2 span{color:#ff6677}
+
+.sub{
+  text-align:center;
+  max-width:600px;
+  margin:0 auto 35px;
 }
 
-.intro,
-.tag,
-h1,
-h2,
-h3,
-p,
-.contact,
-footer {
-  animation: restoreFloat 3s ease-in-out infinite;
+.cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+  gap:20px;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .logo,
-  .links a,
-  h1, h2, h3, p, .tag,
-  .btn, #followBtn, .photo span,
-  .social a, .card h3, .card p,
-  footer, footer span {
-    animation: none;
+.card{
+  background:linear-gradient(145deg,#1b1113,#101010);
+  border:1px solid #ff253a35;
+  border-radius:14px;
+  padding:25px;
+  transition:border-color .2s,transform .2s;
+}
+
+.card:hover{
+  border-color:#ff2638;
+  transform:translateY(-3px);
+}
+
+.card h3{color:#ff6677;margin:12px 0}
+.emoji{font-size:32px}
+
+/* GALLERY */
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:15px;
+}
+
+.photo{
+  height:220px;
+  overflow:hidden;
+  border-radius:12px;
+  position:relative;
+  background:#181818;
+  border:1px solid #ff253a20;
+
+  /* Lightweight floating effect */
+  animation:photoFloat 5s ease-in-out infinite;
+}
+
+.photo:nth-child(3n+2){animation-delay:-1.6s}
+.photo:nth-child(3n){animation-delay:-3.2s}
+
+.photo img{
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:transform .3s ease;
+}
+
+.photo:hover img{transform:scale(1.045)}
+
+.photo span{
+  position:absolute;
+  bottom:0;
+  left:0;
+  right:0;
+  padding:25px 12px 12px;
+  background:linear-gradient(transparent,#000);
+  font-weight:bold;
+  pointer-events:none;
+}
+
+.social{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+  gap:15px;
+}
+
+.social a{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:12px;
+  min-height:60px;
+  padding:18px;
+  text-align:center;
+  background:linear-gradient(135deg,#171717,#080808);
+  border:1px solid #333;
+  border-radius:12px;
+  font-weight:bold;
+  transition:border-color .2s,transform .2s;
+}
+
+.social a:hover{
+  border-color:#ff2638;
+  transform:translateY(-2px);
+}
+
+.social a:nth-child(1){border-color:#229ED9}
+.social a:nth-child(2){border-color:#C13584}
+.social a:nth-child(3){border-color:#FF0033}
+
+.contact{
+  text-align:center;
+  max-width:650px;
+  margin:auto;
+  padding:30px;
+  border:1px solid #ff253a66;
+  border-radius:15px;
+  background:#121010;
+}
+
+.contact .btn{margin-top:18px}
+
+#follow-section{
+  text-align:center;
+  background:#101010;
+  padding:40px 20px;
+  border-top:1px solid #ff253a20;
+  border-bottom:1px solid #ff253a20;
+}
+
+#follow-section h2{color:#ff6677}
+
+#followBtn{
+  background:#ff253a;
+  color:white;
+  border:0;
+  border-radius:8px;
+  padding:12px 27px;
+  font-size:16px;
+  font-weight:bold;
+  cursor:pointer;
+  transition:background .2s;
+}
+
+footer{
+  text-align:center;
+  padding:25px;
+  color:#999;
+  border-top:1px solid #222;
+}
+
+footer span{color:#ff6677}
+
+@keyframes appear{
+  from{opacity:0;transform:translateY(12px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+@keyframes profileFloat{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-8px)}
+}
+
+@keyframes photoFloat{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-4px)}
+}
+
+/* MUSIC BUTTON — SAME POSITION, LIGHTWEIGHT NEON */
+#musicBtn{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  z-index:99999;
+  padding:12px 17px;
+  border:2px solid transparent;
+  border-radius:10px;
+  background:
+    linear-gradient(#ff1028,#ff1028) padding-box,
+    conic-gradient(from var(--spin-angle,0deg),
+      #00f5ff,#7657ff,#ff35c8,#ff1028,#00f5ff) border-box;
+  color:white;
+  font-family:Arial,sans-serif;
+  font-size:15px;
+  font-weight:bold;
+  box-shadow:0 4px 12px #0006;
+  cursor:pointer;
+  animation:musicGlow 4s linear infinite;
+}
+
+@keyframes musicGlow{
+  0%{--spin-angle:0deg}
+  100%{--spin-angle:360deg}
+}
+
+#musicBtn:hover{
+  box-shadow:0 0 12px #00f5ff40,0 4px 12px #0006;
+}
+
+#musicBtn:focus-visible{
+  outline:2px solid #00f5ff;
+  outline-offset:4px;
+}
+
+/* LIGHT SNOWFALL */
+#falling-effects{
+  position:fixed;
+  inset:0;
+  overflow:hidden;
+  pointer-events:none;
+  z-index:9998;
+  contain:strict;
+}
+
+.falling-item{
+  position:absolute;
+  top:-30px;
+  color:white;
+  user-select:none;
+  pointer-events:none;
+  animation:snowFall linear infinite;
+}
+
+@keyframes snowFall{
+  0%{transform:translate3d(0,-30px,0);opacity:0}
+  10%{opacity:.7}
+  90%{opacity:.6}
+  100%{transform:translate3d(20px,110vh,0);opacity:0}
+}
+
+/* MOBILE */
+@media(max-width:700px){
+  nav{
+    align-items:flex-start;
+    flex-direction:column;
+    padding:14px 6%;
   }
-}
 
-/* SOCIAL BUTTONS */
-#social .social a {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-  min-height: 65px;
-  padding: 16px;
-  border: 1px solid #333;
-  border-radius: 14px;
-  background: linear-gradient(135deg, #171717, #080808);
-  color: white;
-  font-weight: 700;
-  text-decoration: none;
-  transition: .25s ease;
-}
+  .links{gap:13px;font-size:13px}
 
-#social .social a:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 0 18px #ff263844;
-}
-
-#social .social a:nth-child(1) { border-color: #229ED9; }
-#social .social a:nth-child(2) { border-color: #C13584; }
-#social .social a:nth-child(3) { border-color: #FF0033; }
-
-/* WHITE SNOWFALL */
-#falling-effects {
-  position: fixed;
-  inset: 0;
-  overflow: hidden;
-  pointer-events: none;
-  z-index: 9998;
-  contain: layout paint;
-}
-
-.falling-item {
-  position: absolute;
-  top: -40px;
-  display: block;
-  line-height: 1;
-  color: white;
-  user-select: none;
-  pointer-events: none;
-  will-change: transform;
-  animation: snow-fall linear infinite;
-}
-
-@keyframes snow-fall {
-  0% {
-    transform: translate3d(0, -40px, 0) rotate(0deg);
-    opacity: 0;
-  }
-  10% { opacity: 0.9; }
-  90% { opacity: 0.8; }
-  100% {
-    transform: translate3d(35px, 110vh, 0) rotate(360deg);
-    opacity: 0;
-  }
-}
-
-/* PLAY MUSIC BUTTON — SAME POSITION AND SIZE */
-#musicBtn {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  z-index: 99999;
-  width: auto;
-  height: auto;
-  padding: 12px 17px;
-  border: 0;
-  border-radius: 10px;
-  background: #ff1028;
-  color: white;
-  font-family: Arial, sans-serif;
-  font-size: 15px;
-  font-weight: bold;
-  box-shadow: 0 4px 12px #0006;
-  cursor: pointer;
-  isolation: isolate;
-  overflow: hidden;
-}
-
-/* ROTATING CYAN, PURPLE AND PINK NEON */
-#musicBtn::before {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  inset: -3px;
-  border-radius: 13px;
-  background: conic-gradient(
-    from 0deg,
-    #00f5ff,
-    #7657ff,
-    #ff35c8,
-    #ff1028,
-    #00f5ff
-  );
-  animation: musicNeonSpin 3.2s linear infinite;
-  filter: blur(.2px);
-}
-
-#musicBtn::after {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  inset: 2px;
-  border-radius: 8px;
-  background: #ff1028;
-  transition: background .25s ease;
-}
-
-#musicBtn:hover {
-  box-shadow: 0 0 12px #00f5ff55,
-              0 0 22px #b13dff55,
-              0 4px 12px #0006;
-}
-
-#musicBtn:focus-visible {
-  outline: 2px solid #00f5ff;
-  outline-offset: 4px;
-}
-
-@keyframes musicNeonSpin {
-  to { transform: rotate(360deg); }
-}
-
-/* SUBTLE ROTATING RED GLOW ON SELECTED CARDS */
-.card,
-.contact,
-#follow-section {
-  position: relative;
-  isolation: isolate;
-}
-
-.card > *,
-.contact > *,
-#follow-section > * {
-  position: relative;
-  z-index: 1;
-}
-
-.card::before,
-.contact::before,
-#follow-section::before {
-  content: "";
-  position: absolute;
-  inset: -1px;
-  border-radius: inherit;
-  padding: 1px;
-  background: conic-gradient(
-    from 0deg,
-    transparent 0deg,
-    rgba(255, 16, 40, .12) 55deg,
-    rgba(255, 16, 40, .72) 100deg,
-    rgba(255, 90, 130, .18) 150deg,
-    transparent 210deg,
-    transparent 360deg
-  );
-  -webkit-mask: linear-gradient(#fff 0 0) content-box,
-                linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  pointer-events: none;
-  z-index: 0;
-  opacity: .62;
-  animation: cardGlowSpin 8s linear infinite;
-}
-
-.card:hover::before,
-.contact:hover::before,
-#follow-section:hover::before {
-  opacity: .95;
-}
-
-@keyframes cardGlowSpin {
-  to { transform: rotate(360deg); }
-}
-
-/* 3D TILT — GALLERY PHOTOS ONLY */
-#photoGallery .photo {
-  perspective: 850px;
-  transform-style: preserve-3d;
-  border: 1px solid rgba(255, 30, 55, .16);
-  transition: border-color .25s ease, box-shadow .25s ease;
-}
-
-#photoGallery .photo img {
-  transform: perspective(850px)
-    rotateX(var(--tilt-x, 0deg))
-    rotateY(var(--tilt-y, 0deg))
-    scale(var(--photo-scale, 1));
-  transform-origin: center;
-  backface-visibility: hidden;
-}
-
-#photoGallery .photo:hover {
-  border-color: rgba(255, 35, 70, .65);
-  box-shadow: 0 8px 22px rgba(255, 16, 40, .16);
-}
-
-#photoGallery .photo:hover img {
-  --photo-scale: 1.035;
-}
-
-/* REDUCE MOTION WHEN REQUESTED */
-@media (prefers-reduced-motion: reduce) {
-  #musicBtn::before,
-  .card::before,
-  .contact::before,
-  #follow-section::before {
-    animation: none;
+  .hero{
+    flex-direction:column-reverse;
+    text-align:center;
+    padding:45px 6%;
+    min-height:auto;
   }
 
-  #photoGallery .photo img {
-    transform: none !important;
-    transition: none;
-  }
+  .profile{width:190px;height:190px}
+  .buttons{justify-content:center}
+  section{padding:50px 6%}
+  .gallery{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .photo{height:165px}
+  .contact{padding:24px 18px}
+
+  /* Reduce motion on phones */
+  .photo{animation-duration:7s}
 }
 
-/* MOBILE: NO CURSOR-TRACKING TILT */
-@media (max-width: 700px) {
-  #photoGallery .photo {
-    -webkit-tap-highlight-color: transparent;
-  }
+@media(max-width:380px){
+  .gallery{grid-template-columns:1fr}
+}
 
-  #photoGallery .photo img {
-    transform: none;
-  }
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .intro,.profile,.photo,#musicBtn{animation:none!important}
+  .photo img,.btn,.card,.social a{transition:none!important}
 }
 </style>
 </head>
 
 <body>
+
 <nav>
   <a class="logo" href="#home">⚡ NS WALE BHAIYA</a>
   <div class="links">
@@ -463,6 +421,7 @@ footer {
 </nav>
 
 <main>
+
 <section class="hero" id="home">
   <div class="intro">
     <div class="tag">🏍 RIDER • DREAMER • EXPLORER</div>
@@ -473,46 +432,25 @@ footer {
       <a class="btn secondary" href="#social">Follow Me</a>
     </div>
   </div>
+
   <div class="profile">
     <img src="1750246498384.jpg" alt="NS Wale Bhaiya profile">
   </div>
 </section>
 
-<section id="follow-section" style="text-align:center;background:#101010;padding:40px 20px;">
-  <h2 style="color:#ffc857;">NS WALE BHAIYA</h2>
+<section id="follow-section">
+  <h2>NS WALE BHAIYA</h2>
   <p style="font-size:32px;color:white;margin:15px 0;">
     <strong id="followerCount">7.5K</strong>
     <span style="font-size:16px;color:#bbb;">Followers</span>
   </p>
-  <button id="followBtn"
-    style="background:#ff253a;color:white;border:0;border-radius:8px;
-    padding:14px 30px;font-size:16px;font-weight:bold;cursor:pointer;">
-    + Follow
-  </button>
-  <p id="followMessage" style="margin-top:12px;font-size:13px;color:#bbb;">
+
+  <button id="followBtn" type="button">+ Follow</button>
+
+  <p id="followMessage" style="margin-top:12px;font-size:13px;">
     Join the NS Wale Bhaiya community ❤️
   </p>
 </section>
-
-<script>
-const followBtn = document.getElementById("followBtn");
-const followMessage = document.getElementById("followMessage");
-let following = false;
-
-followBtn.addEventListener("click", function () {
-  following = !following;
-
-  if (following) {
-    followBtn.textContent = "✓ Following";
-    followBtn.style.background = "#333";
-    followMessage.textContent = "Thanks for your support! ❤️";
-  } else {
-    followBtn.textContent = "+ Follow";
-    followBtn.style.background = "#ff253a";
-    followMessage.textContent = "Join the NS Wale Bhaiya community ❤️";
-  }
-});
-</script>
 
 <section id="about">
   <h2>ABOUT <span>ME</span></h2>
@@ -552,6 +490,7 @@ followBtn.addEventListener("click", function () {
 <section id="social">
   <h2>CONNECT <span>WITH ME</span></h2>
   <p class="sub">Follow my journey on social media.</p>
+
   <div class="social">
     <a href="https://youtube.com/@ns_wale_bhaiya?si=vP4jl76WlRu68x-m" target="_blank" rel="noopener noreferrer">▶ YouTube</a>
     <a href="https://www.instagram.com/ns_wale_bhaiya/" target="_blank" rel="noopener noreferrer">📸 Instagram</a>
@@ -566,6 +505,7 @@ followBtn.addEventListener("click", function () {
     <a class="btn primary" href="mailto:richxansari@gmail.com">✉ Contact Me</a>
   </div>
 </section>
+
 </main>
 
 <footer>
@@ -574,7 +514,7 @@ followBtn.addEventListener("click", function () {
 </footer>
 
 <!-- BACKGROUND MUSIC -->
-<video id="bgMusic" loop playsinline preload="auto" style="display:none;">
+<video id="bgMusic" loop playsinline preload="none" style="display:none;">
   <source src="apna%20bana%20le%20-%20Arijit%20Singh%20%5Bedit%20audio%5D%28720P_HD%29.mp4" type="video/mp4">
 </video>
 
@@ -583,31 +523,48 @@ followBtn.addEventListener("click", function () {
 </button>
 
 <script>
+const followBtn = document.getElementById("followBtn");
+const followMessage = document.getElementById("followMessage");
+let following = false;
+
+followBtn.addEventListener("click", function(){
+  following = !following;
+
+  if(following){
+    followBtn.textContent = "✓ Following";
+    followBtn.style.background = "#333";
+    followMessage.textContent = "Thanks for your support! ❤️";
+  }else{
+    followBtn.textContent = "+ Follow";
+    followBtn.style.background = "#ff253a";
+    followMessage.textContent = "Join the NS Wale Bhaiya community ❤️";
+  }
+});
+
 const music = document.getElementById("bgMusic");
-const btn = document.getElementById("musicBtn");
+const musicBtn = document.getElementById("musicBtn");
 
 music.volume = 0.5;
 
-btn.addEventListener("click", async function () {
-  if (music.paused) {
-    try {
+musicBtn.addEventListener("click", async function(){
+  if(music.paused){
+    try{
       await music.play();
-      btn.textContent = "Pause Music";
-      btn.setAttribute("aria-label", "Pause Music");
-    } catch (error) {
-      btn.textContent = "Play Music";
-      btn.setAttribute("aria-label", "Play Music");
+      musicBtn.textContent = "Pause Music";
+      musicBtn.setAttribute("aria-label","Pause Music");
+    }catch(error){
+      musicBtn.textContent = "Play Music";
+      musicBtn.setAttribute("aria-label","Play Music");
       alert("Song nahi chala. MP4 file ka naam aur location check karo.");
     }
-  } else {
+  }else{
     music.pause();
-    btn.textContent = "Play Music";
-    btn.setAttribute("aria-label", "Play Music");
+    musicBtn.textContent = "Play Music";
+    musicBtn.setAttribute("aria-label","Play Music");
   }
 });
-</script>
 
-<script>
+/* ALL ORIGINAL GALLERY PHOTO FILENAMES PRESERVED */
 const gallery = document.getElementById("photoGallery");
 
 const photos = [
@@ -631,7 +588,7 @@ const photos = [
   "IMG_20240105_184359_739.jpg"
 ];
 
-photos.forEach((filename, index) => {
+photos.forEach((filename,index)=>{
   const card = document.createElement("div");
   card.className = "photo";
 
@@ -639,68 +596,40 @@ photos.forEach((filename, index) => {
   img.src = filename;
   img.alt = "Biker photo " + (index + 1);
   img.loading = "lazy";
+  img.decoding = "async";
 
-  img.onerror = function () {
-    card.remove();
+  /* Keep the card visible if a photo path needs checking */
+  img.onerror = function(){
+    card.style.background = "#181818";
+    img.style.display = "none";
   };
 
   card.appendChild(img);
   gallery.appendChild(card);
 });
 
-/* 3D TILT: GALLERY PHOTOS ONLY, DESKTOP POINTERS */
-(() => {
-  const galleryPhotos = document.querySelectorAll("#photoGallery .photo");
-
-  galleryPhotos.forEach((photo) => {
-    photo.addEventListener("pointermove", (event) => {
-      if (
-        event.pointerType !== "mouse" ||
-        window.matchMedia("(prefers-reduced-motion: reduce)").matches
-      ) return;
-
-      const rect = photo.getBoundingClientRect();
-      const x = (event.clientX - rect.left) / rect.width;
-      const y = (event.clientY - rect.top) / rect.height;
-
-      const tiltY = (x - 0.5) * 8;
-      const tiltX = (0.5 - y) * 8;
-
-      photo.style.setProperty("--tilt-x", tiltX.toFixed(2) + "deg");
-      photo.style.setProperty("--tilt-y", tiltY.toFixed(2) + "deg");
-    });
-
-    photo.addEventListener("pointerleave", () => {
-      photo.style.setProperty("--tilt-x", "0deg");
-      photo.style.setProperty("--tilt-y", "0deg");
-    });
-  });
-})();
-</script>
-
-<!-- WHITE SNOWFLAKES -->
-<div id="falling-effects" aria-hidden="true"></div>
-
-<script>
-(() => {
+/* LIGHT SNOWFALL: FEWER ELEMENTS FOR BETTER PERFORMANCE */
+(function(){
   const container = document.getElementById("falling-effects");
-  if (!container || container.childElementCount) return;
+  if(!container || container.childElementCount) return;
 
-  const symbols = ["❄️", "❄", "❅", "❆"];
-  const total = 30;
+  const symbols = ["❄","❅","❆"];
+  const total = 12;
 
-  for (let i = 0; i < total; i++) {
+  for(let i=0;i<total;i++){
     const snow = document.createElement("span");
     snow.className = "falling-item";
     snow.textContent = symbols[i % symbols.length];
     snow.style.left = Math.random() * 100 + "%";
-    snow.style.fontSize = (12 + Math.random() * 12) + "px";
-    snow.style.animationDuration = (10 + Math.random() * 10) + "s";
-    snow.style.animationDelay = (-Math.random() * 20) + "s";
+    snow.style.fontSize = (12 + Math.random() * 8) + "px";
+    snow.style.animationDuration = (12 + Math.random() * 8) + "s";
+    snow.style.animationDelay = (-Math.random() * 15) + "s";
     container.appendChild(snow);
   }
 })();
 </script>
+
+<div id="falling-effects" aria-hidden="true"></div>
 
 </body>
 </html>
