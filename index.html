@@ -11,20 +11,21 @@
 *{box-sizing:border-box;margin:0;padding:0}
 
 :root{
-  --red:#ff1020;
-  --deep-red:#b00012;
-  --gold:#ff2638;
-  --text:#f7f5f5;
+  --red:#b00012;
+  --deep-red:#70000a;
+  --bright-red:#d00018;
+  --text:#f7f2f2;
   --muted:#c8bfc1;
+  --border:rgba(190,0,20,.55);
 }
 
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
 
 body{
   background:
-    radial-gradient(ellipse at 15% 10%,rgba(180,0,15,.24),transparent 42%),
-    radial-gradient(ellipse at 90% 55%,rgba(255,0,25,.13),transparent 36%),
-    linear-gradient(145deg,#020202,#170206 55%,#050000);
+    radial-gradient(ellipse at 15% 10%,rgba(130,0,12,.22),transparent 42%),
+    radial-gradient(ellipse at 90% 55%,rgba(110,0,12,.14),transparent 36%),
+    linear-gradient(145deg,#020202,#100105 55%,#030000);
   color:var(--text);
   font-family:Arial,sans-serif;
   overflow-x:hidden;
@@ -36,19 +37,20 @@ nav{
   position:sticky;
   top:0;
   z-index:10;
-  background:rgba(5,0,0,.96);
-  padding:17px 7%;
+  background:rgba(5,0,0,.97);
+  padding:15px 7%;
   display:flex;
   justify-content:space-between;
   align-items:center;
   gap:15px;
-  border-bottom:1px solid rgba(255,16,32,.7);
+  border-bottom:1px solid rgba(176,0,18,.75);
 }
 
 .logo{
-  color:#ff2638;
+  color:#d00018;
   font-weight:900;
   font-size:20px;
+  letter-spacing:.4px;
 }
 
 .links{
@@ -62,19 +64,19 @@ nav{
 .links a:hover{color:#ff5265}
 
 .hero{
-  min-height:85vh;
-  padding:65px 8%;
+  min-height:78vh;
+  padding:55px 8%;
   display:flex;
   align-items:center;
   justify-content:space-between;
   gap:35px;
-  background:radial-gradient(ellipse at 80% 40%,#60000e 0%,transparent 65%);
+  background:radial-gradient(ellipse at 80% 40%,#390008 0%,transparent 65%);
 }
 
 .intro{max-width:650px}
 
 .tag{
-  color:#ff5365;
+  color:#d64a59;
   letter-spacing:3px;
   font-size:12px;
 }
@@ -86,8 +88,8 @@ h1{
 }
 
 h1 span{
-  color:var(--red);
-  text-shadow:0 0 22px #ff102070;
+  color:#b00012;
+  text-shadow:0 0 18px #b0001240;
 }
 
 p{color:var(--muted);line-height:1.8}
@@ -103,23 +105,43 @@ p{color:var(--muted);line-height:1.8}
   padding:13px 20px;
   border-radius:7px;
   font-weight:bold;
-  display:inline-block;
-  transition:box-shadow .2s;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:9px;
+  transition:box-shadow .2s,border-color .2s;
 }
 
-.primary{background:#e9001b;color:white}
-.secondary{border:1px solid #ff2638;color:#ff5265}
+.primary{
+  background:linear-gradient(135deg,#9b000e,#650008);
+  color:white;
+  border:1px solid #b00012;
+}
 
-.btn:hover{box-shadow:0 0 16px #ff102055}
+.secondary{
+  border:1px solid #79000b;
+  color:#e35a68;
+}
+
+.btn:hover{box-shadow:0 0 14px #b0001240}
+
+.profile-wrap{
+  flex-shrink:0;
+  width:280px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
 
 .profile{
-  width:255px;
-  height:255px;
-  flex-shrink:0;
+  width:245px;
+  height:245px;
   border-radius:50%;
-  padding:7px;
-  border:3px solid #ff2638;
-  box-shadow:0 0 28px #ff102045;
+  padding:6px;
+  border:3px solid #a90012;
+  background:#090000;
+  box-shadow:0 0 24px #8b000033;
+  animation:floatProfile 4.5s ease-in-out infinite;
 }
 
 .profile img{
@@ -130,8 +152,104 @@ p{color:var(--muted);line-height:1.8}
   display:block;
 }
 
+.follow-instagram{
+  margin-top:19px;
+  min-width:175px;
+  padding:12px 22px;
+  display:inline-flex;
+  justify-content:center;
+  align-items:center;
+  gap:10px;
+  color:#fff;
+  background:linear-gradient(135deg,#8b0000,#570006);
+  border:1px solid #a50012;
+  border-radius:8px;
+  font-size:15px;
+  font-weight:bold;
+  box-shadow:0 0 12px #79000b35;
+  transition:transform .2s,box-shadow .2s;
+}
+
+.follow-instagram:hover{
+  transform:translateY(-2px);
+  box-shadow:0 0 17px #a000164c;
+}
+
+.profile-handle{
+  margin-top:8px;
+  font-size:12px;
+  color:#b8a0a3;
+  letter-spacing:.4px;
+}
+
+/* ORIGINAL SOCIAL BRAND ICONS */
+.brand-icon{
+  width:23px;
+  height:23px;
+  flex-shrink:0;
+  display:block;
+}
+
+.brand-icon.youtube{color:#ff3038}
+.brand-icon.instagram{color:#f16b8d}
+.brand-icon.facebook{color:#4c8dff}
+.brand-icon.telegram{color:#40b9ef}
+
+.social-area{
+  width:100%;
+  max-width:360px;
+  margin-top:23px;
+}
+
+.social-heading{
+  text-align:center;
+  font-size:12px;
+  font-weight:bold;
+  letter-spacing:2px;
+  color:#d3a0a5;
+  margin-bottom:13px;
+}
+
+.social{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:10px;
+}
+
+.social a{
+  min-width:0;
+  min-height:56px;
+  padding:11px 9px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  background:linear-gradient(145deg,#190306,#080304);
+  border:1px solid #4c1018;
+  border-radius:10px;
+  font-size:13px;
+  font-weight:bold;
+  transition:border-color .2s,background .2s;
+}
+
+.social a:hover{
+  border-color:#a00016;
+  background:linear-gradient(145deg,#260309,#0b0304);
+}
+
+.social a span{
+  overflow-wrap:anywhere;
+}
+
+.social a:focus-visible,
+.btn:focus-visible,
+#musicBtn:focus-visible{
+  outline:2px solid #ff5365;
+  outline-offset:3px;
+}
+
 section{
-  padding:65px 8%;
+  padding:52px 8%;
   scroll-margin-top:75px;
 }
 
@@ -141,32 +259,26 @@ h2{
   margin-bottom:15px;
 }
 
-h2 span{color:#ff2638}
+h2 span{color:#b00012}
 
 .sub{
   text-align:center;
   max-width:600px;
-  margin:0 auto 35px;
-}
-
-.cards{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
-  gap:20px;
+  margin:0 auto 30px;
 }
 
 .card{
   position:relative;
-  background:linear-gradient(145deg,#230408,#100607);
-  border:1px solid #ff102044;
+  background:linear-gradient(145deg,#1b0306,#0a0405);
+  border:1px solid #570811;
   border-radius:14px;
   padding:25px;
   transition:border-color .25s;
+  animation:floatPhoto 4.5s ease-in-out infinite;
 }
 
-.card:hover{border-color:#ff1020}
-.card h3{color:#ff5265;margin:12px 0}
-.emoji{font-size:32px}
+.card:hover{border-color:#a50015}
+.card h3{color:#d34b5b;margin:12px 0}
 
 .gallery{
   display:grid;
@@ -179,9 +291,13 @@ h2 span{color:#ff2638}
   overflow:hidden;
   border-radius:12px;
   position:relative;
-  background:#181010;
-  border:1px solid #ff102033;
+  background:#100709;
+  border:1px solid #4a0b13;
+  animation:floatPhoto 4s ease-in-out infinite;
 }
+
+.photo:nth-child(3n+2){animation-delay:-1.3s}
+.photo:nth-child(3n){animation-delay:-2.5s}
 
 .photo img{
   display:block;
@@ -191,100 +307,32 @@ h2 span{color:#ff2638}
   transition:transform .35s;
 }
 
-.photo:hover img{transform:scale(1.05)}
-
-.photo span{
-  position:absolute;
-  bottom:0;
-  left:0;
-  right:0;
-  padding:25px 12px 12px;
-  background:linear-gradient(transparent,#000);
-  font-weight:bold;
-}
-
-.social{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
-  gap:15px;
-}
-
-.social a{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:12px;
-  min-height:62px;
-  padding:18px;
-  text-align:center;
-  background:linear-gradient(135deg,#21070a,#080505);
-  border:1px solid #551018;
-  border-radius:12px;
-  font-weight:bold;
-  transition:border-color .2s;
-}
-
-.social a:hover{border-color:#ff2638}
-.social a:nth-child(1){border-color:#229ED9}
-.social a:nth-child(2){border-color:#C13584}
-.social a:nth-child(3){border-color:#FF0033}
-
-.contact{
-  text-align:center;
-  max-width:650px;
-  margin:auto;
-  padding:30px;
-  border:1px solid #ff102066;
-  border-radius:15px;
-  background:#160609;
-}
-
-.contact .btn{margin-top:18px}
-
-#follow-section{
-  text-align:center;
-  background:#100305;
-  padding:40px 20px;
-  border-top:1px solid #ff102044;
-  border-bottom:1px solid #ff102044;
-}
-
-#follow-section h2{color:#ff2638}
-
-#followBtn{
-  background:#e9001b;
-  color:white;
-  border:0;
-  border-radius:8px;
-  padding:12px 27px;
-  font-size:16px;
-  font-weight:bold;
-  cursor:pointer;
-}
+.photo:hover img{transform:scale(1.04)}
 
 footer{
   text-align:center;
   padding:25px;
   color:#999;
-  border-top:1px solid #441016;
+  border-top:1px solid #3a080e;
+  font-size:13px;
 }
 
-footer span{color:#ff2638}
+footer span{color:#c00016}
 
-/* FLOATING TEXT AND ELEMENTS */
+/* FLOATING ANIMATIONS */
 @keyframes floatText{
   0%,100%{transform:translateY(0)}
-  50%{transform:translateY(-5px)}
+  50%{transform:translateY(-4px)}
 }
 
 @keyframes floatPhoto{
   0%,100%{transform:translateY(0)}
-  50%{transform:translateY(-7px)}
+  50%{transform:translateY(-5px)}
 }
 
 @keyframes floatProfile{
   0%,100%{transform:translateY(0)}
-  50%{transform:translateY(-10px)}
+  50%{transform:translateY(-8px)}
 }
 
 .logo,
@@ -293,23 +341,10 @@ footer span{color:#ff2638}
 h1,h2,h3,
 .intro p,
 .buttons .btn,
-#followBtn,
-#followMessage,
-.social a,
-.contact,
-footer,
-footer span{
+.social-heading,
+footer{
   animation:floatText 3.5s ease-in-out infinite;
 }
-
-.profile{animation:floatProfile 4.5s ease-in-out infinite}
-
-.photo{animation:floatPhoto 4s ease-in-out infinite}
-.photo:nth-child(3n+2){animation-delay:-1.3s}
-.photo:nth-child(3n){animation-delay:-2.5s}
-
-.card{animation:floatPhoto 4.5s ease-in-out infinite}
-.card:nth-child(even){animation-delay:-2s}
 
 /* SNOWFALL */
 #falling-effects{
@@ -324,7 +359,7 @@ footer span{
 .falling-item{
   position:absolute;
   top:-35px;
-  color:white;
+  color:#fff;
   line-height:1;
   user-select:none;
   pointer-events:none;
@@ -334,56 +369,76 @@ footer span{
 
 @keyframes snowFall{
   0%{transform:translate3d(0,-35px,0) rotate(0deg);opacity:0}
-  10%{opacity:.85}
-  90%{opacity:.7}
-  100%{transform:translate3d(30px,110vh,0) rotate(240deg);opacity:0}
+  10%{opacity:.75}
+  90%{opacity:.65}
+  100%{transform:translate3d(25px,110vh,0) rotate(220deg);opacity:0}
 }
 
-/* MUSIC BUTTON — SAME POSITION AND SIZE */
+/* MUSIC BUTTON — ORIGINAL POSITION AND SIZE */
 #musicBtn{
   position:fixed;
   bottom:20px;
   right:20px;
   z-index:99999;
   padding:12px 17px;
-  border:2px solid #ff2638;
+  border:2px solid #8d0010;
   border-radius:10px;
-  background:#e9001b;
+  background:linear-gradient(135deg,#a00012,#650008);
   color:white;
   font-family:Arial,sans-serif;
   font-size:15px;
   font-weight:bold;
-  box-shadow:0 0 10px #ff102050;
+  box-shadow:0 0 10px #79000b45;
   cursor:pointer;
   animation:musicGlow 3s ease-in-out infinite;
 }
 
 @keyframes musicGlow{
-  0%,100%{box-shadow:0 0 7px #ff102055}
-  50%{box-shadow:0 0 15px #ff102099,0 0 23px #b0001255}
+  0%,100%{box-shadow:0 0 7px #79000b45}
+  50%{box-shadow:0 0 13px #a0001255}
+}
+
+@media(max-width:800px){
+  nav{padding:14px 6%}
+  .links{gap:12px;font-size:13px}
+  .hero{padding:45px 6%;gap:25px}
+  .profile-wrap{width:255px}
+  .profile{width:215px;height:215px}
 }
 
 @media(max-width:700px){
-  nav{align-items:flex-start;flex-direction:column;padding:14px 6%}
+  nav{
+    align-items:flex-start;
+    flex-direction:column;
+    padding:14px 6%;
+  }
+
   .links{gap:13px;font-size:13px}
 
   .hero{
     flex-direction:column-reverse;
     text-align:center;
-    padding:45px 6%;
+    padding:38px 6% 45px;
     min-height:auto;
+    gap:30px;
   }
 
+  .intro{width:100%}
+  .profile-wrap{width:100%;max-width:360px}
   .profile{width:190px;height:190px}
   .buttons{justify-content:center}
-  section{padding:50px 6%}
+  .social-area{margin-top:22px}
+  section{padding:43px 6%}
   .gallery{grid-template-columns:repeat(2,minmax(0,1fr))}
   .photo{height:165px}
-  .contact{padding:24px 18px}
+  .card{padding:22px}
 }
 
 @media(max-width:380px){
   .gallery{grid-template-columns:1fr}
+  .links{gap:10px}
+  .social a{font-size:12px;padding:10px 6px}
+  #musicBtn{bottom:14px;right:14px}
 }
 
 @media(prefers-reduced-motion:reduce){
@@ -402,57 +457,116 @@ footer span{
     <a href="#about">About</a>
     <a href="#gallery">Gallery</a>
     <a href="#social">Social</a>
-    <a href="#contact">Contact</a>
   </div>
 </nav>
 
 <main>
 <section class="hero" id="home">
+
   <div class="intro">
     <div class="tag">🏍 RIDER • DREAMER • EXPLORER</div>
     <h1>NS WALE<br><span>BHAIYA</span></h1>
     <p>Welcome to my world! Bikes, journeys, amazing memories and the freedom of the open road. Follow my journey and become part of the ride.</p>
+
     <div class="buttons">
       <a class="btn primary" href="#gallery">Explore Gallery</a>
       <a class="btn secondary" href="#social">Follow Me</a>
     </div>
   </div>
 
-  <div class="profile">
-    <img src="1750246498384.jpg" alt="NS Wale Bhaiya profile">
+  <div class="profile-wrap">
+    <div class="profile">
+      <img src="1750246498384.jpg" alt="NS Wale Bhaiya profile">
+    </div>
+
+    <!-- INSTAGRAM FOLLOW BUTTON -->
+    <a class="follow-instagram"
+       href="https://www.instagram.com/NS_Wale_Bhaiya/"
+       target="_blank"
+       rel="noopener noreferrer">
+      <svg class="brand-icon instagram" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="3" y="3" width="18" height="18" rx="5"/>
+        <circle cx="12" cy="12" r="4"/>
+        <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+      </svg>
+      Follow Me
+    </a>
+
+    <div class="profile-handle">@NS_Wale_Bhaiya</div>
+
+    <!-- SOCIAL LINKS DIRECTLY BELOW PROFILE -->
+    <div class="social-area" id="social">
+      <div class="social-heading">✦ CONNECT WITH ME ✦</div>
+
+      <div class="social">
+
+        <a href="https://youtube.com/@ns_wale_bhaiya?si=vP4jl76WlRu68x-m"
+           target="_blank" rel="noopener noreferrer"
+           aria-label="Visit YouTube channel">
+          <svg class="brand-icon youtube" viewBox="0 0 24 24" aria-hidden="true">
+            <path fill="currentColor" d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8ZM9.6 15.6V8.4l6.3 3.6-6.3 3.6Z"/>
+          </svg>
+          <span>YouTube</span>
+        </a>
+
+        <a href="https://www.instagram.com/NS_Wale_Bhaiya/"
+           target="_blank" rel="noopener noreferrer"
+           aria-label="Visit Instagram profile">
+          <svg class="brand-icon instagram" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="3" width="18" height="18" rx="5"/>
+            <circle cx="12" cy="12" r="4"/>
+            <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+          </svg>
+          <span>Instagram</span>
+        </a>
+
+        <a href="https://www.facebook.com/share/1DbcUAdqet/"
+           target="_blank" rel="noopener noreferrer"
+           aria-label="Visit Facebook">
+          <svg class="brand-icon facebook" viewBox="0 0 24 24" aria-hidden="true">
+            <path fill="currentColor" d="M24 12a12 12 0 1 0-13.9 11.85v-8.38H7.08V12h3.02V9.36c0-2.98 1.78-4.63 4.5-4.63 1.3 0 2.66.23 2.66.23v2.93h-1.5c-1.48 0-1.94.92-1.94 1.87V12h3.3l-.53 3.47h-2.77v8.38A12 12 0 0 0 24 12Z"/>
+          </svg>
+          <span>Facebook</span>
+        </a>
+
+        <a href="https://t.me/blacl_devilyt"
+           target="_blank" rel="noopener noreferrer"
+           aria-label="Join Telegram">
+          <svg class="brand-icon telegram" viewBox="0 0 24 24" aria-hidden="true">
+            <path fill="currentColor" d="M21.9 3.2 18.6 20c-.25 1.18-.9 1.47-1.82.92l-5.03-3.7-2.43 2.34c-.27.27-.5.5-1.02.5l.36-5.12 9.32-8.42c.4-.36-.09-.56-.62-.2L5.84 13.6.87 12.05c-1.08-.34-1.1-1.08.22-1.6L20.5 2.9c.9-.33 1.68.22 1.4.3Z"/>
+          </svg>
+          <span>Join Me</span>
+        </a>
+
+      </div>
+    </div>
   </div>
 </section>
 
-<section id="follow-section">
-  <h2>NS WALE BHAIYA</h2>
-  <p style="font-size:32px;color:white;margin:15px 0">
-    <strong id="followerCount">7.5K</strong>
-    <span style="font-size:16px;color:#bbb">Followers</span>
-  </p>
-  <button id="followBtn" type="button">+ Follow</button>
-  <p id="followMessage" style="margin-top:12px;font-size:13px">
-    Join the NS Wale Bhaiya community ❤️
-  </p>
-</section>
-
+<!-- ABOUT ME MOVED UP, DIRECTLY AFTER THE PROFILE/SOCIAL AREA -->
 <section id="about">
   <h2>ABOUT <span>ME</span></h2>
   <p class="sub">My journey, my community, my comeback.</p>
 
   <div class="card" style="max-width:850px;margin:0 auto;text-align:left;line-height:1.9">
     <h3 style="font-size:26px;text-align:center">NS Wale Bhaiya</h3>
+
     <p style="margin-top:20px">
       Hey everyone, I am Saiyob Akter Ansari, but most of you know me as NS Wale Bhaiya.
     </p>
+
     <p style="margin-top:15px">
       I started my digital journey as a content creator on YouTube, where I’ve built an amazing community of 2K+ subscribers who have always supported my work. Creating videos, sharing my rides, and connecting with people through my content has always been a true passion of mine.
     </p>
+
     <p style="margin-top:15px">
       However, life sometimes takes unexpected turns. Due to some personal and family reasons, I am currently unable to create regular videos and have had to take a temporary break from content creation. But please know that this is definitely not the end of the journey.
     </p>
+
     <p style="margin-top:15px">
       I am planning to return soon with full energy, fresh ideas, and a brand-new comeback. Until then, stay connected with me right here through this website and my social media profiles. Your constant support means everything to me, and I can't wait to see you all again very soon!
     </p>
+
     <h3 style="text-align:center;margin-top:25px;color:#168cff">
       🔥 THE COMEBACK IS COMING 🔥
     </h3>
@@ -461,26 +575,8 @@ footer span{
 
 <section id="gallery">
   <h2>MY <span>GALLERY</span></h2>
-  <p class="sub">Sample images below. Replace them with your own photos.</p>
+  <p class="sub">My rides, my memories, my journey.</p>
   <div class="gallery" id="photoGallery"></div>
-</section>
-
-<section id="social">
-  <h2>CONNECT <span>WITH ME</span></h2>
-  <p class="sub">Follow my journey on social media.</p>
-  <div class="social">
-    <a href="https://youtube.com/@ns_wale_bhaiya?si=vP4jl76WlRu68x-m" target="_blank" rel="noopener noreferrer">▶ YouTube</a>
-    <a href="https://www.instagram.com/ns_wale_bhaiya/" target="_blank" rel="noopener noreferrer">📸 Instagram</a>
-    <a href="https://t.me/black_devilyt" target="_blank" rel="noopener noreferrer">✈ Telegram</a>
-  </div>
-</section>
-
-<section id="contact">
-  <h2>LET'S <span>CONNECT</span></h2>
-  <div class="contact">
-    <p>Have a question or want to connect? Send me an email.</p>
-    <a class="btn primary" href="mailto:richxansari@gmail.com">✉ Contact Me</a>
-  </div>
 </section>
 </main>
 
@@ -498,24 +594,7 @@ footer span{
 <div id="falling-effects" aria-hidden="true"></div>
 
 <script>
-const followBtn=document.getElementById("followBtn");
-const followMessage=document.getElementById("followMessage");
-let following=false;
-
-followBtn.addEventListener("click",function(){
-  following=!following;
-
-  if(following){
-    followBtn.textContent="✓ Following";
-    followBtn.style.background="#333";
-    followMessage.textContent="Thanks for your support! ❤️";
-  }else{
-    followBtn.textContent="+ Follow";
-    followBtn.style.background="#e9001b";
-    followMessage.textContent="Join the NS Wale Bhaiya community ❤️";
-  }
-});
-
+/* MUSIC BUTTON */
 const music=document.getElementById("bgMusic");
 const musicBtn=document.getElementById("musicBtn");
 
@@ -539,7 +618,7 @@ musicBtn.addEventListener("click",async function(){
   }
 });
 
-/* ALL ORIGINAL PHOTO FILENAMES PRESERVED */
+/* ALL 18 ORIGINAL PHOTO FILENAMES PRESERVED */
 const gallery=document.getElementById("photoGallery");
 
 const photos=[
@@ -573,7 +652,6 @@ photos.forEach((filename,index)=>{
   img.loading="lazy";
   img.decoding="async";
 
-  /* Keep gallery card if a file path needs checking */
   img.onerror=function(){
     img.style.display="none";
   };
@@ -582,21 +660,21 @@ photos.forEach((filename,index)=>{
   gallery.appendChild(card);
 });
 
-/* WHITE SNOWFALL */
+/* LIGHTWEIGHT WHITE SNOWFALL */
 (function(){
   const container=document.getElementById("falling-effects");
   if(!container || container.childElementCount) return;
 
-  const symbols=["❄️","❄","❅","❆"];
-  const total=30;
+  const symbols=["❄","❅","❆"];
+  const total=24;
 
   for(let i=0;i<total;i++){
     const snow=document.createElement("span");
     snow.className="falling-item";
     snow.textContent=symbols[i%symbols.length];
     snow.style.left=Math.random()*100+"%";
-    snow.style.fontSize=(12+Math.random()*12)+"px";
-    snow.style.animationDuration=(10+Math.random()*10)+"s";
+    snow.style.fontSize=(12+Math.random()*10)+"px";
+    snow.style.animationDuration=(12+Math.random()*10)+"s";
     snow.style.animationDelay=(-Math.random()*20)+"s";
     container.appendChild(snow);
   }
