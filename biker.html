@@ -281,6 +281,48 @@ footer {
     opacity: 0;
   }
 }
+
+/* BIGGER MUSIC BUTTON — TOP RIGHT */
+#musicBtn {
+  position: fixed;
+  top: 90px;
+  right: 16px;
+  bottom: auto;
+  z-index: 99999;
+  min-width: 190px;
+  min-height: 60px;
+  padding: 16px 22px;
+  border: 2px solid #ff5263;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #ff2638, #850010);
+  color: white;
+  font-family: Arial, sans-serif;
+  font-size: 17px;
+  font-weight: bold;
+  box-shadow: 0 0 18px #ff102866;
+  cursor: pointer;
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+
+#musicBtn:hover {
+  transform: scale(1.04);
+  box-shadow: 0 0 24px #ff263899;
+}
+
+#musicBtn:active {
+  transform: scale(.97);
+}
+
+@media(max-width:480px) {
+  #musicBtn {
+    top: 85px;
+    right: 10px;
+    min-width: 175px;
+    min-height: 58px;
+    padding: 14px 18px;
+    font-size: 16px;
+  }
+}
 </style>
 </head>
 
@@ -308,7 +350,6 @@ footer {
     </div>
   </div>
   <div class="profile">
-    <!-- Replace this sample photo with your own photo URL -->
     <img src="1750246498384.jpg" alt="NS Wale Bhaiya profile">
   </div>
 </section>
@@ -354,10 +395,7 @@ followBtn.addEventListener("click", function () {
   <p class="sub">My journey, my community, my comeback.</p>
 
   <div class="card" style="max-width:850px;margin:0 auto;text-align:left;line-height:1.9;">
-
-    <h3 style="font-size:26px;text-align:center;">
-       NS Wale Bhaiya
-    </h3>
+    <h3 style="font-size:26px;text-align:center;">NS Wale Bhaiya</h3>
 
     <p style="margin-top:20px;">
       Hey everyone, I am Saiyob Akter Ansari, but most of you know me as NS Wale Bhaiya.
@@ -378,7 +416,6 @@ followBtn.addEventListener("click", function () {
     <h3 style="text-align:center;margin-top:25px;color:#168cff;">
       🔥 THE COMEBACK IS COMING 🔥
     </h3>
-
   </div>
 </section>
 
@@ -402,7 +439,6 @@ followBtn.addEventListener("click", function () {
   <h2>LET'S <span>CONNECT</span></h2>
   <div class="contact">
     <p>Have a question or want to connect? Send me an email.</p>
-    <!-- Replace your-email@example.com with your email address -->
     <a class="btn primary" href="mailto: richxansari@gmail.com">✉ Contact Me</a>
   </div>
 </section>
@@ -413,17 +449,13 @@ followBtn.addEventListener("click", function () {
   Ride responsibly. Make every journey memorable.
 </footer>
 
-<!-- Background Music Button -->
+<!-- Background Music -->
 <video id="bgMusic" loop playsinline preload="auto" style="display:none;">
   <source src="apna%20bana%20le%20-%20Arijit%20Singh%20%5Bedit%20audio%5D%28720P_HD%29.mp4" type="video/mp4">
 </video>
 
-<button id="musicBtn" type="button" aria-label="Play or pause music"
-style="position:fixed;bottom:20px;right:20px;z-index:99999;
-width:55px;height:55px;border:0;border-radius:50%;
-background:#ff1028;color:white;font-size:24px;
-box-shadow:0 4px 12px #0006;cursor:pointer;">
-🎵
+<button id="musicBtn" type="button" aria-label="Tap to Play Music">
+  Tap to Play Music
 </button>
 
 <script>
@@ -436,14 +468,17 @@ btn.addEventListener("click", async function () {
   if (music.paused) {
     try {
       await music.play();
-      btn.textContent = "⏸️";
+      btn.textContent = "Pause Music";
+      btn.setAttribute("aria-label", "Pause Music");
     } catch (error) {
-      btn.textContent = "🎵";
+      btn.textContent = "Tap to Play Music";
+      btn.setAttribute("aria-label", "Tap to Play Music");
       alert("Song nahi chala. MP4 file ka naam aur location check karo.");
     }
   } else {
     music.pause();
-    btn.textContent = "🎵";
+    btn.textContent = "Tap to Play Music";
+    btn.setAttribute("aria-label", "Tap to Play Music");
   }
 });
 </script>
