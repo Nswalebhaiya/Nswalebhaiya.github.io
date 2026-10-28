@@ -1,340 +1,548 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#101323">
-<title>NS Wale Bhaiya | Content Creator</title>
+<meta name="theme-color" content="#080000">
+<meta name="description" content="NS Wale Bhaiya - Biker portfolio">
+<title>NS Wale Bhaiya | Biker Portfolio</title>
 
-  
-  
 <style>
-*{box-sizing:border-box}
+*{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  --red:#ff1020;
+  --deep-red:#b00012;
+  --gold:#ff2638;
+  --text:#f7f5f5;
+  --muted:#c8bfc1;
+}
+
+html{scroll-behavior:smooth}
+
 body{
-  margin:0;font-family:Arial,sans-serif;
-  background:linear-gradient(135deg,#101323,#34205a,#111827);
-  color:#fff;min-height:100vh;padding:25px 15px
+  background:
+    radial-gradient(ellipse at 15% 10%,rgba(180,0,15,.24),transparent 42%),
+    radial-gradient(ellipse at 90% 55%,rgba(255,0,25,.13),transparent 36%),
+    linear-gradient(145deg,#020202,#170206 55%,#050000);
+  color:var(--text);
+  font-family:Arial,sans-serif;
+  overflow-x:hidden;
 }
-main{max-width:700px;margin:auto}
+
+a{color:inherit;text-decoration:none}
+
+nav{
+  position:sticky;
+  top:0;
+  z-index:10;
+  background:rgba(5,0,0,.96);
+  padding:17px 7%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:15px;
+  border-bottom:1px solid rgba(255,16,32,.7);
+}
+
+.logo{
+  color:#ff2638;
+  font-weight:900;
+  font-size:20px;
+}
+
+.links{
+  display:flex;
+  gap:18px;
+  flex-wrap:wrap;
+  font-size:14px;
+}
+
+.links a{transition:color .2s}
+.links a:hover{color:#ff5265}
+
+.hero{
+  min-height:85vh;
+  padding:65px 8%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:35px;
+  background:radial-gradient(ellipse at 80% 40%,#60000e 0%,transparent 65%);
+}
+
+.intro{max-width:650px}
+
+.tag{
+  color:#ff5365;
+  letter-spacing:3px;
+  font-size:12px;
+}
+
+h1{
+  font-size:clamp(42px,7vw,78px);
+  line-height:1.05;
+  margin:20px 0;
+}
+
+h1 span{
+  color:var(--red);
+  text-shadow:0 0 22px #ff102070;
+}
+
+p{color:var(--muted);line-height:1.8}
+
+.buttons{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+  margin-top:25px;
+}
+
+.btn{
+  padding:13px 20px;
+  border-radius:7px;
+  font-weight:bold;
+  display:inline-block;
+  transition:box-shadow .2s;
+}
+
+.primary{background:#e9001b;color:white}
+.secondary{border:1px solid #ff2638;color:#ff5265}
+
+.btn:hover{box-shadow:0 0 16px #ff102055}
+
+.profile{
+  width:255px;
+  height:255px;
+  flex-shrink:0;
+  border-radius:50%;
+  padding:7px;
+  border:3px solid #ff2638;
+  box-shadow:0 0 28px #ff102045;
+}
+
+.profile img{
+  width:100%;
+  height:100%;
+  border-radius:50%;
+  object-fit:cover;
+  display:block;
+}
+
+section{
+  padding:65px 8%;
+  scroll-margin-top:75px;
+}
+
+h2{
+  text-align:center;
+  font-size:clamp(28px,4vw,42px);
+  margin-bottom:15px;
+}
+
+h2 span{color:#ff2638}
+
+.sub{
+  text-align:center;
+  max-width:600px;
+  margin:0 auto 35px;
+}
+
+.cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+  gap:20px;
+}
+
 .card{
-  background:#ffffff12;border:1px solid #ffffff25;
-  border-radius:22px;padding:24px;margin:16px 0;
-  box-shadow:0 8px 28px #0003;backdrop-filter:blur(10px)
+  position:relative;
+  background:linear-gradient(145deg,#230408,#100607);
+  border:1px solid #ff102044;
+  border-radius:14px;
+  padding:25px;
+  transition:border-color .25s;
 }
-.hero{text-align:center;padding-top:32px}
-.avatar{
-  width:100px;height:100px;margin:auto;border-radius:50%;
-  display:block;object-fit:cover;border:4px solid #ffffff55
-}
-h1{font-size:29px;margin:18px 0 8px}
-.tag{color:#e9d5ff;font-size:16px}
-.badge{
-  display:inline-block;margin-top:15px;padding:9px 16px;
-  background:#ffffff18;border-radius:30px;color:#f5d0fe;font-weight:bold
-}
-h2{font-size:20px;margin-top:0}
-p{color:#e5e7eb;line-height:1.7;font-size:15px}
-.links a{
-  display:block;text-decoration:none;text-align:center;padding:14px;
-  margin:12px 0;border-radius:12px;background:#fff;
-  color:#25143d;font-weight:bold
-}
-.links a:hover{background:#e9d5ff}
-.small{text-align:center;font-size:12px;color:#cbd5e1}
 
-.gallery-intro{color:#d8c9f5;margin-top:-5px}
+.card:hover{border-color:#ff1020}
+.card h3{color:#ff5265;margin:12px 0}
+.emoji{font-size:32px}
+
 .gallery{
-  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:10px;margin-top:18px
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:15px;
 }
+
 .photo{
-  position:relative;overflow:hidden;border-radius:14px;
-  aspect-ratio:4/5;background:#201a32;border:1px solid #ffffff20;
-  cursor:pointer
+  height:220px;
+  overflow:hidden;
+  border-radius:12px;
+  position:relative;
+  background:#181010;
+  border:1px solid #ff102033;
 }
+
 .photo img{
-  width:100%;height:100%;display:block;object-fit:cover;
-  transition:transform .3s ease
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:transform .35s;
 }
+
 .photo:hover img{transform:scale(1.05)}
-.photo:focus-visible{outline:2px solid #e9d5ff;outline-offset:3px}
-.photo-error{
-  display:none;position:absolute;inset:0;align-items:center;
-  justify-content:center;padding:10px;text-align:center;
-  color:#e9d5ff;font-size:12px;overflow-wrap:anywhere
-}
-.photo img:not([src]){display:none}
 
-#viewer{
-  position:fixed;inset:0;background:#080710f2;z-index:10;
-  display:none;align-items:center;justify-content:center;
-  padding:55px 12px 20px
-}
-#viewer.open{display:flex}
-#viewer img{
-  max-width:100%;max-height:85vh;object-fit:contain;border-radius:10px
-}
-.close{
-  position:absolute;top:12px;right:15px;width:44px;height:44px;
-  border:0;border-radius:50%;background:#ffffff20;color:white;
-  font-size:28px;cursor:pointer
-}
-@media(min-width:560px){
-  .gallery{grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
-}
-@media(min-width:760px){
-  .gallery{grid-template-columns:repeat(4,minmax(0,1fr))}
+.photo span{
+  position:absolute;
+  bottom:0;
+  left:0;
+  right:0;
+  padding:25px 12px 12px;
+  background:linear-gradient(transparent,#000);
+  font-weight:bold;
 }
 
-/* NS Wale Bhaiya Glow */
-body {
-  background-size: 200% 200%;
-  animation: nsBgGlow 12s ease infinite;
+.social{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+  gap:15px;
 }
 
-.hero {
-  background: linear-gradient(135deg, #25143d, #34205a, #161d42, #25143d);
-  background-size: 250% 250%;
-  animation: nsBgGlow 12s ease infinite;
+.social a{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:12px;
+  min-height:62px;
+  padding:18px;
+  text-align:center;
+  background:linear-gradient(135deg,#21070a,#080505);
+  border:1px solid #551018;
+  border-radius:12px;
+  font-weight:bold;
+  transition:border-color .2s;
 }
 
-.hero .avatar {
-  box-shadow: 0 0 12px #d946ef88, 0 0 28px #d946ef66;
-  animation: nsAvatarGlow 3s ease-in-out infinite alternate;
+.social a:hover{border-color:#ff2638}
+.social a:nth-child(1){border-color:#229ED9}
+.social a:nth-child(2){border-color:#C13584}
+.social a:nth-child(3){border-color:#FF0033}
+
+.contact{
+  text-align:center;
+  max-width:650px;
+  margin:auto;
+  padding:30px;
+  border:1px solid #ff102066;
+  border-radius:15px;
+  background:#160609;
 }
 
-@keyframes nsBgGlow {
-  0%, 100% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
+.contact .btn{margin-top:18px}
+
+#follow-section{
+  text-align:center;
+  background:#100305;
+  padding:40px 20px;
+  border-top:1px solid #ff102044;
+  border-bottom:1px solid #ff102044;
 }
 
-@keyframes nsAvatarGlow {
-  from { box-shadow: 0 0 8px #d946ef66; }
-  to { box-shadow: 0 0 25px #d946efcc; }
+#follow-section h2{color:#ff2638}
+
+#followBtn{
+  background:#e9001b;
+  color:white;
+  border:0;
+  border-radius:8px;
+  padding:12px 27px;
+  font-size:16px;
+  font-weight:bold;
+  cursor:pointer;
 }
 
-/* Stylish NS Wale Bhaiya Gallery */
-.gallery {
-  gap: 14px;
+footer{
+  text-align:center;
+  padding:25px;
+  color:#999;
+  border-top:1px solid #441016;
 }
 
-.photo {
-  border-radius: 18px;
-  box-shadow: 0 4px 14px #0004;
-  transition: transform 0.35s ease, box-shadow 0.35s ease;
+footer span{color:#ff2638}
+
+/* FLOATING TEXT AND ELEMENTS */
+@keyframes floatText{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-5px)}
 }
 
-.photo img {
-  transition: transform 0.5s ease;
+@keyframes floatPhoto{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-7px)}
 }
 
-.photo:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 25px #d946ef55;
+@keyframes floatProfile{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-10px)}
 }
 
-.photo:hover img {
-  transform: scale(1.08);
+.logo,
+.links a,
+.tag,
+h1,h2,h3,
+.intro p,
+.buttons .btn,
+#followBtn,
+#followMessage,
+.social a,
+.contact,
+footer,
+footer span{
+  animation:floatText 3.5s ease-in-out infinite;
 }
 
-.photo:active {
-  transform: scale(0.98);
+.profile{animation:floatProfile 4.5s ease-in-out infinite}
+
+.photo{animation:floatPhoto 4s ease-in-out infinite}
+.photo:nth-child(3n+2){animation-delay:-1.3s}
+.photo:nth-child(3n){animation-delay:-2.5s}
+
+.card{animation:floatPhoto 4.5s ease-in-out infinite}
+.card:nth-child(even){animation-delay:-2s}
+
+/* SNOWFALL */
+#falling-effects{
+  position:fixed;
+  inset:0;
+  overflow:hidden;
+  pointer-events:none;
+  z-index:9998;
+  contain:layout paint;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .photo,
-  .photo img {
-    transition: none;
+.falling-item{
+  position:absolute;
+  top:-35px;
+  color:white;
+  line-height:1;
+  user-select:none;
+  pointer-events:none;
+  will-change:transform;
+  animation:snowFall linear infinite;
+}
+
+@keyframes snowFall{
+  0%{transform:translate3d(0,-35px,0) rotate(0deg);opacity:0}
+  10%{opacity:.85}
+  90%{opacity:.7}
+  100%{transform:translate3d(30px,110vh,0) rotate(240deg);opacity:0}
+}
+
+/* MUSIC BUTTON — SAME POSITION AND SIZE */
+#musicBtn{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  z-index:99999;
+  padding:12px 17px;
+  border:2px solid #ff2638;
+  border-radius:10px;
+  background:#e9001b;
+  color:white;
+  font-family:Arial,sans-serif;
+  font-size:15px;
+  font-weight:bold;
+  box-shadow:0 0 10px #ff102050;
+  cursor:pointer;
+  animation:musicGlow 3s ease-in-out infinite;
+}
+
+@keyframes musicGlow{
+  0%,100%{box-shadow:0 0 7px #ff102055}
+  50%{box-shadow:0 0 15px #ff102099,0 0 23px #b0001255}
+}
+
+@media(max-width:700px){
+  nav{align-items:flex-start;flex-direction:column;padding:14px 6%}
+  .links{gap:13px;font-size:13px}
+
+  .hero{
+    flex-direction:column-reverse;
+    text-align:center;
+    padding:45px 6%;
+    min-height:auto;
   }
-}
-  
-/* NS Wale Bhaiya - Glowing Social Links */
-.links a {
-  display: block;
-  margin: 14px auto;
-  padding: 15px 18px;
-  max-width: 420px;
-  border: 1px solid #d946ef66;
-  border-radius: 16px;
-  background: linear-gradient(135deg, #34205a, #25143d);
-  color: #ffffff;
-  font-weight: bold;
-  text-decoration: none;
-  box-shadow: 0 0 10px #d946ef22;
-  transition: transform 0.25s ease,
-              box-shadow 0.25s ease,
-              border-color 0.25s ease;
+
+  .profile{width:190px;height:190px}
+  .buttons{justify-content:center}
+  section{padding:50px 6%}
+  .gallery{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .photo{height:165px}
+  .contact{padding:24px 18px}
 }
 
-.links a:hover,
-.links a:focus-visible {
-  transform: translateY(-3px);
-  border-color: #d946ef;
-  box-shadow: 0 0 18px #d946ef77;
-  outline: 2px solid #d946ef88;
-  outline-offset: 2px;
+@media(max-width:380px){
+  .gallery{grid-template-columns:1fr}
 }
 
-.links a:active {
-  transform: scale(0.98);
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
 }
-
-@media (prefers-reduced-motion: reduce) {
-  .links a {
-    transition: none;
-  }
-}
-  
-/* NS Wale Bhaiya Welcome Animation */
-.welcome-intro {
-  text-align: center;
-  padding: 24px 12px;
-  color: #ffffff;
-  font-size: clamp(22px, 6vw, 34px);
-  font-weight: 900;
-  letter-spacing: 1px;
-  text-shadow:
-    0 0 8px #d946ef,
-    0 0 20px #9333ea;
-  animation: nsWelcome 1.2s ease-out both;
-}
-
-.welcome-intro span {
-  display: inline-block;
-  background: linear-gradient(90deg, #f0abfc, #a78bfa, #67e8f9);
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
-}
-
-@keyframes nsWelcome {
-  from {
-    opacity: 0;
-    transform: translateY(18px) scale(0.96);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .welcome-intro {
-    animation: none;
-  }
-}
-  
-/* NS Wale Bhaiya - Live Neon Background */
-body {
-  background-image:
-    radial-gradient(
-      circle at 15% 20%,
-      #7c3aed33,
-      transparent 35%
-    ),
-    radial-gradient(
-      circle at 85% 80%,
-      #d946ef22,
-      transparent 40%
-    ),
-    linear-gradient(
-      135deg,
-      #0b0618,
-      #171033,
-      #0b1026,
-      #1b0b2e
-    );
-  background-size: 200% 200%;
-  animation: nsNeonBackground 14s ease-in-out infinite;
-  background-attachment: fixed;
-}
-
-@keyframes nsNeonBackground {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  body {
-    animation: none;
-  }
-}
-  
 </style>
 </head>
 
 <body>
-<main>
 
-
-<section class="card hero">
-  <img
-    src="1750246498384.jpg"
-    alt="NS Wale Bhaiya"
-    class="avatar"
-  >
-
-  <h1>NS Wale Bhaiya</h1>
-
-  <div class="tag">✨ Content Creator ✨</div>
-
-  <div class="badge">▶ 2K+ YouTube Subscribers</div>
-
-  <div class="hero-actions">
-    <a
-      class="hero-btn primary"
-      href="https://youtube.com/@ns_wale_bhaiya?si=ulXVLEd6e01aFjqz"
-      target="_blank"
-      rel="noopener noreferrer"
-    >▶ Watch My Videos</a>
-
-    <a class="hero-btn secondary" href="#gallery">
-      📸 Explore Gallery
-    </a>
-  </div>
-</section>
-
-
-<section class="card">
-  <h2>👋 About Me</h2>
-  <p>My real name is Saiyob Akter Ansari, but I am widely known as NS Wale Bhaiya. I am a content creator on YouTube with a community of 2K+ subscribers. After my previous Instagram account was disabled, I started this new profile to reconnect with my audience, build my community, and continue sharing my video content.</p>
-</section>
-
-<section class="card">
-  <h2>📸 My Photo Gallery</h2>
-  <p class="gallery-intro">Some moments from my journey ❤️</p>
-
-  <div class="gallery" id="gallery"></div>
-</section>
-
-<section class="card">
-  <h2>📱 Connect With Me</h2>
+<nav>
+  <a class="logo" href="#home">⚡ NS WALE BHAIYA</a>
   <div class="links">
-    <a href="https://youtube.com/@ns_wale_bhaiya?si=ulXVLEd6e01aFjqz" target="_blank" rel="noopener noreferrer">▶ YouTube Channel</a>
-    <a href="https://www.instagram.com/ns_wale_bhaiya?srtk=azUyZjAyMTZtZXYx" target="_blank" rel="noopener noreferrer">📸 Instagram Profile</a>
-    <a href="https://t.me/black_devilyt" target="_blank" rel="noopener noreferrer">✈️ Telegram Channel</a>
-    <a href="https://wa.me/918768566804" target="_blank" rel="noopener noreferrer">💬 WhatsApp Contact</a>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#social">Social</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<main>
+<section class="hero" id="home">
+  <div class="intro">
+    <div class="tag">🏍 RIDER • DREAMER • EXPLORER</div>
+    <h1>NS WALE<br><span>BHAIYA</span></h1>
+    <p>Welcome to my world! Bikes, journeys, amazing memories and the freedom of the open road. Follow my journey and become part of the ride.</p>
+    <div class="buttons">
+      <a class="btn primary" href="#gallery">Explore Gallery</a>
+      <a class="btn secondary" href="#social">Follow Me</a>
+    </div>
+  </div>
+
+  <div class="profile">
+    <img src="1750246498384.jpg" alt="NS Wale Bhaiya profile">
   </div>
 </section>
 
-<p class="small">Thanks for visiting my website ❤️</p>
+<section id="follow-section">
+  <h2>NS WALE BHAIYA</h2>
+  <p style="font-size:32px;color:white;margin:15px 0">
+    <strong id="followerCount">7.5K</strong>
+    <span style="font-size:16px;color:#bbb">Followers</span>
+  </p>
+  <button id="followBtn" type="button">+ Follow</button>
+  <p id="followMessage" style="margin-top:12px;font-size:13px">
+    Join the NS Wale Bhaiya community ❤️
+  </p>
+</section>
+
+<section id="about">
+  <h2>ABOUT <span>ME</span></h2>
+  <p class="sub">My journey, my community, my comeback.</p>
+
+  <div class="card" style="max-width:850px;margin:0 auto;text-align:left;line-height:1.9">
+    <h3 style="font-size:26px;text-align:center">NS Wale Bhaiya</h3>
+    <p style="margin-top:20px">
+      Hey everyone, I am Saiyob Akter Ansari, but most of you know me as NS Wale Bhaiya.
+    </p>
+    <p style="margin-top:15px">
+      I started my digital journey as a content creator on YouTube, where I’ve built an amazing community of 2K+ subscribers who have always supported my work. Creating videos, sharing my rides, and connecting with people through my content has always been a true passion of mine.
+    </p>
+    <p style="margin-top:15px">
+      However, life sometimes takes unexpected turns. Due to some personal and family reasons, I am currently unable to create regular videos and have had to take a temporary break from content creation. But please know that this is definitely not the end of the journey.
+    </p>
+    <p style="margin-top:15px">
+      I am planning to return soon with full energy, fresh ideas, and a brand-new comeback. Until then, stay connected with me right here through this website and my social media profiles. Your constant support means everything to me, and I can't wait to see you all again very soon!
+    </p>
+    <h3 style="text-align:center;margin-top:25px;color:#168cff">
+      🔥 THE COMEBACK IS COMING 🔥
+    </h3>
+  </div>
+</section>
+
+<section id="gallery">
+  <h2>MY <span>GALLERY</span></h2>
+  <p class="sub">Sample images below. Replace them with your own photos.</p>
+  <div class="gallery" id="photoGallery"></div>
+</section>
+
+<section id="social">
+  <h2>CONNECT <span>WITH ME</span></h2>
+  <p class="sub">Follow my journey on social media.</p>
+  <div class="social">
+    <a href="https://youtube.com/@ns_wale_bhaiya?si=vP4jl76WlRu68x-m" target="_blank" rel="noopener noreferrer">▶ YouTube</a>
+    <a href="https://www.instagram.com/ns_wale_bhaiya/" target="_blank" rel="noopener noreferrer">📸 Instagram</a>
+    <a href="https://t.me/black_devilyt" target="_blank" rel="noopener noreferrer">✈ Telegram</a>
+  </div>
+</section>
+
+<section id="contact">
+  <h2>LET'S <span>CONNECT</span></h2>
+  <div class="contact">
+    <p>Have a question or want to connect? Send me an email.</p>
+    <a class="btn primary" href="mailto:richxansari@gmail.com">✉ Contact Me</a>
+  </div>
+</section>
 </main>
 
-<div id="viewer" role="dialog" aria-modal="true" aria-label="Photo viewer">
-  <button class="close" id="closeViewer" aria-label="Close photo">×</button>
-  <img id="largePhoto" alt="Enlarged gallery photo">
-</div>
+<footer>
+  © <span>NS Wale Bhaiya</span> | Biker Portfolio<br>
+  Ride responsibly. Make every journey memorable.
+</footer>
+
+<video id="bgMusic" loop playsinline preload="none" style="display:none">
+  <source src="apna%20bana%20le%20-%20Arijit%20Singh%20%5Bedit%20audio%5D%28720P_HD%29.mp4" type="video/mp4">
+</video>
+
+<button id="musicBtn" type="button" aria-label="Play Music">Play Music</button>
+
+<div id="falling-effects" aria-hidden="true"></div>
 
 <script>
-const photos = [
+const followBtn=document.getElementById("followBtn");
+const followMessage=document.getElementById("followMessage");
+let following=false;
+
+followBtn.addEventListener("click",function(){
+  following=!following;
+
+  if(following){
+    followBtn.textContent="✓ Following";
+    followBtn.style.background="#333";
+    followMessage.textContent="Thanks for your support! ❤️";
+  }else{
+    followBtn.textContent="+ Follow";
+    followBtn.style.background="#e9001b";
+    followMessage.textContent="Join the NS Wale Bhaiya community ❤️";
+  }
+});
+
+const music=document.getElementById("bgMusic");
+const musicBtn=document.getElementById("musicBtn");
+
+music.volume=.5;
+
+musicBtn.addEventListener("click",async function(){
+  if(music.paused){
+    try{
+      await music.play();
+      musicBtn.textContent="Pause Music";
+      musicBtn.setAttribute("aria-label","Pause Music");
+    }catch(error){
+      musicBtn.textContent="Play Music";
+      musicBtn.setAttribute("aria-label","Play Music");
+      alert("Song nahi chala. MP4 file ka naam aur location check karo.");
+    }
+  }else{
+    music.pause();
+    musicBtn.textContent="Play Music";
+    musicBtn.setAttribute("aria-label","Play Music");
+  }
+});
+
+/* ALL ORIGINAL PHOTO FILENAMES PRESERVED */
+const gallery=document.getElementById("photoGallery");
+
+const photos=[
   "IMG_20260224_150506275_HDR~2.jpg",
   "IMG_20260224_150010292_HDR~2.jpg",
   "IMG_20260404_153332485_HDR.jpg",
@@ -352,210 +560,48 @@ const photos = [
   "IMG_20240105_184351_892.jpg",
   "IMG_20240105_184351_408.jpg",
   "IMG_20240709_102901_307.jpg",
-  "IMG_20240105_184359_739.jpg",
+  "IMG_20240105_184359_739.jpg"
 ];
 
-const gallery = document.getElementById("gallery");
-const viewer = document.getElementById("viewer");
-const largePhoto = document.getElementById("largePhoto");
-const closeViewer = document.getElementById("closeViewer");
+photos.forEach((filename,index)=>{
+  const card=document.createElement("div");
+  card.className="photo";
 
-photos.forEach((filename) => {
-  const card = document.createElement("div");
-  card.className = "photo";
-  card.tabIndex = 0;
-  card.setAttribute("role", "button");
-  card.setAttribute("aria-label", "Open photo: " + filename);
+  const img=document.createElement("img");
+  img.src=filename;
+  img.alt="Biker photo "+(index+1);
+  img.loading="lazy";
+  img.decoding="async";
 
-  const img = document.createElement("img");
-  img.src = filename;
-  img.alt = filename;
-  img.loading = "lazy";
-  img.decoding = "async";
+  /* Keep gallery card if a file path needs checking */
+  img.onerror=function(){
+    img.style.display="none";
+  };
 
-  const error = document.createElement("div");
-  error.className = "photo-error";
-  error.textContent = "Photo not found: " + filename;
-
-  
-img.addEventListener("error", () => {
-  card.remove();
-});
-
-  img.addEventListener("load", () => {
-    img.style.display = "block";
-    error.style.display = "none";
-  });
-
-  function openPhoto() {
-    if (!img.naturalWidth) return;
-    largePhoto.src = img.src;
-    largePhoto.alt = filename;
-    viewer.classList.add("open");
-    closeViewer.focus();
-  }
-
-  card.addEventListener("click", openPhoto);
-  card.addEventListener("keydown", (event) => {
-    if (event.key === "Enter" || event.key === " ") {
-      event.preventDefault();
-      openPhoto();
-    }
-  });
-
-  card.append(img, error);
+  card.appendChild(img);
   gallery.appendChild(card);
 });
 
-function closePhoto() {
-  viewer.classList.remove("open");
-  largePhoto.removeAttribute("src");
-}
+/* WHITE SNOWFALL */
+(function(){
+  const container=document.getElementById("falling-effects");
+  if(!container || container.childElementCount) return;
 
-closeViewer.addEventListener("click", closePhoto);
+  const symbols=["❄️","❄","❅","❆"];
+  const total=30;
 
-viewer.addEventListener("click", (event) => {
-  if (event.target === viewer) closePhoto();
-});
-
-document.addEventListener("keydown", (event) => {
-  if (event.key === "Escape") closePhoto();
-});
-
-/* 🕷️ SPIDER-MAN DARK EDITION */
-:root {
-  --red: #ff1028;
-  --gold: #168cff;
-  --spidey-blue: #168cff;
-}
-
-/* Dark cinematic background with subtle web pattern */
-body {
-  background-color: #030308;
-  background-image:
-    radial-gradient(ellipse at 15% 15%, #a00020 0%, transparent 38%),
-    radial-gradient(ellipse at 85% 55%, #08275e 0%, transparent 40%),
-    repeating-conic-gradient(
-      from 0deg at 50% 50%,
-      transparent 0deg 14deg,
-      #168cff12 14.5deg 15deg,
-      transparent 15.5deg 30deg
-    ),
-    linear-gradient(145deg, #030308, #10030a 55%, #020611);
-  background-attachment: fixed;
-}
-
-/* Spider-Man red and blue navigation */
-nav {
-  background: #050509ee;
-  border-bottom: 1px solid #ff102899;
-  box-shadow: 0 4px 22px #ff102822;
-}
-
-.logo {
-  color: #ff1028;
-  text-shadow: 0 0 12px #ff102866;
-}
-
-.links a:hover {
-  color: #168cff;
-  text-shadow: 0 0 10px #168cff99;
-}
-
-/* Cinematic hero section */
-.hero {
-  background:
-    radial-gradient(ellipse at 80% 40%, #142b68 0%, transparent 45%),
-    radial-gradient(ellipse at 15% 60%, #650014 0%, transparent 45%),
-    linear-gradient(135deg, #08040b, #10040b 55%, #030611);
-}
-
-/* Blue glowing profile border */
-.profile {
-  border-color: #168cff;
-  box-shadow:
-    0 0 18px #168cff77,
-    0 0 38px #ff102844;
-}
-
-/* Red and blue headings */
-h1 span,
-h2 span {
-  color: #ff1028;
-  text-shadow: 0 0 15px #ff102866;
-}
-
-/* Neon cards */
-.card {
-  background: linear-gradient(145deg, #17101b, #080b16);
-  border: 1px solid #168cff55;
-  box-shadow: 0 0 14px #00000055;
-}
-
-.card h3 {
-  color: #168cff;
-}
-
-.card:hover {
-  border-color: #ff1028;
-  box-shadow: 0 0 22px #ff102833;
-}
-
-/* Gallery keeps all existing photos */
-.photo {
-  border: 1px solid #168cff66;
-  box-shadow: 0 0 12px #00000077;
-}
-
-.photo:hover {
-  border-color: #ff1028;
-  box-shadow: 0 0 20px #ff102855;
-}
-
-/* Buttons */
-.btn.primary,
-#followBtn {
-  background: linear-gradient(135deg, #ff1028, #a00020);
-  box-shadow: 0 0 12px #ff102833;
-}
-
-.btn.secondary {
-  border-color: #168cff;
-  color: #168cff;
-}
-
-.btn:hover {
-  box-shadow: 0 0 20px #168cff55;
-}
-
-/* Social links and contact panel */
-.social a {
-  background: linear-gradient(145deg, #15101a, #080b14);
-  border-color: #168cff55;
-}
-
-.social a:hover {
-  border-color: #ff1028;
-  color: #168cff;
-}
-
-.contact {
-  background: linear-gradient(145deg, #160b13, #080b14);
-  border-color: #ff102877;
-  box-shadow: 0 0 20px #ff102811;
-}
-
-/* Floating music button */
-#musicBtn {
-  background: linear-gradient(135deg, #ff1028, #168cff) !important;
-  box-shadow: 0 0 20px #168cff66 !important;
-}
-
-/* Blue cinematic footer */
-footer {
-  border-top-color: #168cff55;
-    }
-    
+  for(let i=0;i<total;i++){
+    const snow=document.createElement("span");
+    snow.className="falling-item";
+    snow.textContent=symbols[i%symbols.length];
+    snow.style.left=Math.random()*100+"%";
+    snow.style.fontSize=(12+Math.random()*12)+"px";
+    snow.style.animationDuration=(10+Math.random()*10)+"s";
+    snow.style.animationDelay=(-Math.random()*20)+"s";
+    container.appendChild(snow);
+  }
+})();
 </script>
+
 </body>
 </html>
