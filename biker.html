@@ -331,7 +331,7 @@ followBtn.addEventListener("click", function () {
     document.getElementById("youtubePlayer").appendChild(frame);
   }
 
-  window.addEventListener("load", startMusic);
+  document.addEventListener("click", startMusic, { once: true });
 })();
 </script>
 <script>
