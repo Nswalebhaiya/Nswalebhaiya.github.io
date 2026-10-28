@@ -9,152 +9,567 @@
 
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-:root{--red:#b00012;--deep-red:#70000a;--bright-red:#d00018;--text:#f7f2f2;--muted:#c8bfc1;--border:rgba(190,0,20,.55)}
-html{scroll-behavior:smooth;scroll-padding-top:80px}
-body{background:radial-gradient(ellipse at 15% 10%,rgba(130,0,12,.22),transparent 42%),radial-gradient(ellipse at 90% 55%,rgba(110,0,12,.14),transparent 36%),linear-gradient(145deg,#020202,#100105 55%,#030000);color:var(--text);font-family:Arial,sans-serif;overflow-x:hidden}
-a{color:inherit;text-decoration:none}
-nav{position:sticky;top:0;z-index:10;background:rgba(5,0,0,.97);padding:15px 7%;display:flex;justify-content:space-between;align-items:center;gap:15px;border-bottom:1px solid rgba(176,0,18,.75)}
-.logo{color:#d00018;font-weight:900;font-size:20px;letter-spacing:.4px}
-.links{display:flex;gap:18px;flex-wrap:wrap;font-size:14px}
-.links a{transition:color .2s}.links a:hover{color:#ff5265}
-.hero{min-height:78vh;padding:55px 8%;display:flex;align-items:center;justify-content:space-between;gap:35px;background:radial-gradient(ellipse at 80% 40%,#390008 0%,transparent 65%)}
-.intro{max-width:650px}
-.tag{color:#d64a59;letter-spacing:3px;font-size:12px}
-h1{font-size:clamp(42px,7vw,78px);line-height:1.05;margin:20px 0}
-.neon-name{color:#fff;text-shadow:none;animation:floatText 3.5s ease-in-out infinite}
-.neon-name span{color:#d00018;text-shadow:none;animation:none}
-p{color:var(--muted);line-height:1.8}
-.buttons{display:flex;gap:12px;flex-wrap:wrap;margin-top:25px}
-.btn{padding:13px 20px;border-radius:7px;font-weight:bold;display:inline-flex;align-items:center;justify-content:center;gap:9px;transition:box-shadow .2s,border-color .2s}
-.primary{background:linear-gradient(135deg,#9b000e,#650008);color:white;border:1px solid #b00012}
-.secondary{border:1px solid #79000b;color:#e35a68}
-.btn:hover{box-shadow:0 0 14px #b0001240}
-.profile-wrap{flex-shrink:0;width:280px;display:flex;flex-direction:column;align-items:center}
-.profile{position:relative;width:245px;height:245px;border-radius:50%;padding:6px;border:2px solid #70000a;background:#090000;box-shadow:none;animation:floatProfile 4.5s ease-in-out infinite}
-.profile::before,.profile::after{content:none}
-.profile img{position:relative;width:100%;height:100%;border-radius:50%;object-fit:cover;display:block}
-.follow-instagram{margin-top:19px;min-width:175px;padding:12px 22px;display:inline-flex;justify-content:center;align-items:center;gap:10px;color:#fff;background:linear-gradient(135deg,#8b0000,#570006);border:1px solid #a50012;border-radius:8px;font-size:15px;font-weight:bold;box-shadow:0 0 12px #79000b35;transition:transform .2s,box-shadow .2s}
-.follow-instagram:hover{transform:translateY(-2px);box-shadow:0 0 17px #a000164c}
-.profile-handle{margin-top:8px;font-size:12px;color:#b8a0a3;letter-spacing:.4px}
-.brand-icon{width:23px;height:23px;flex-shrink:0;display:block}
-.brand-icon.youtube{color:#ff3038}.brand-icon.instagram{color:#f16b8d}.brand-icon.facebook{color:#4c8dff}.brand-icon.telegram{color:#40b9ef}
-.social-area{width:100%;max-width:360px;margin-top:23px}
-.social-heading{text-align:center;font-size:12px;font-weight:bold;letter-spacing:2px;color:#d3a0a5;margin-bottom:13px}
-.social{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
-.social a{min-width:0;min-height:56px;padding:11px 9px;display:flex;align-items:center;justify-content:center;gap:8px;background:linear-gradient(145deg,#190306,#080304);border:1px solid #4c1018;border-radius:10px;font-size:13px;font-weight:bold;transition:border-color .2s,background .2s}
-.social a:hover{border-color:#a00016;background:linear-gradient(145deg,#260309,#0b0304)}
-.social a span{overflow-wrap:anywhere}
-.social a:focus-visible,.btn:focus-visible,#musicBtn:focus-visible,.music-progress:focus-visible{outline:2px solid #ff5365;outline-offset:3px}
-section{padding:52px 8%;scroll-margin-top:75px}
-h2{text-align:center;font-size:clamp(28px,4vw,42px);margin-bottom:15px}
-h2 span{color:#b00012}
-.sub{text-align:center;max-width:600px;margin:0 auto 30px}
-.card{position:relative;background:linear-gradient(145deg,#1b0306,#0a0405);border:1px solid #570811;border-radius:14px;padding:25px;transition:border-color .25s;animation:floatPhoto 4.5s ease-in-out infinite}
-.card:hover{border-color:#a50015}.card h3{color:#d34b5b;margin:12px 0}
-.gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px}
-.photo{height:220px;overflow:hidden;border-radius:12px;position:relative;background:#100709;border:1px solid #4a0b13;animation:floatPhoto 4s ease-in-out infinite}
-.photo:nth-child(3n+2){animation-delay:-1.3s}.photo:nth-child(3n){animation-delay:-2.5s}
-.photo img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .35s}
-.photo:hover img{transform:scale(1.04)}
-footer{text-align:center;padding:25px;color:#999;border-top:1px solid #3a080e;font-size:13px}
-footer span{color:#c00016}
-@keyframes floatText{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
-@keyframes floatPhoto{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
-@keyframes floatProfile{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
-.logo,.links a,.tag,h1,h2,h3,.intro p,.buttons .btn,.social-heading,footer{animation:floatText 3.5s ease-in-out infinite}
-#falling-effects{position:fixed;inset:0;overflow:hidden;pointer-events:none;z-index:9998;contain:layout paint}
-.falling-item{position:absolute;top:-35px;color:#fff;line-height:1;user-select:none;pointer-events:none;will-change:transform;animation:snowFall linear infinite}
-@keyframes snowFall{0%{transform:translate3d(0,-35px,0) rotate(0deg);opacity:0}10%{opacity:.75}90%{opacity:.65}100%{transform:translate3d(25px,110vh,0) rotate(220deg);opacity:0}}
 
-/* PREMIUM NEON MUSIC PLAYER */
-.music-player{position:relative;right:auto;bottom:auto;z-index:2;width:min(340px,calc(100% - 32px));margin:24px auto;padding:15px;border:1px solid #70000a;border-radius:17px;color:#fff;background:linear-gradient(145deg,#200308,#080203 75%);box-shadow:0 8px 28px #0009;backdrop-filter:blur(12px)}
-.music-top{display:flex;align-items:center;gap:11px}
-.music-disc{width:48px;height:48px;flex-shrink:0;display:grid;place-items:center;border:2px solid #8d0010;border-radius:50%;background:radial-gradient(circle,#2a1114 0 18%,#090000 20% 55%,#521019 58% 62%,#080000 65%);box-shadow:none}
-.music-disc span{font-size:25px;color:#e9c7cb}
-.music-disc.playing{animation:discSpin 3s linear infinite}
-@keyframes discSpin{to{transform:rotate(360deg)}}
-.music-info{flex:1;min-width:0;display:flex;flex-direction:column;gap:5px}
-.music-info strong{color:#fff;font-size:14px}.music-info small{color:#c8aeb2;font-size:11px}
-.music-bars{height:28px;display:flex;align-items:center;gap:3px}
-.music-bars i{display:block;width:3px;height:6px;border-radius:5px;background:#b00012}
-.music-bars.playing i{animation:musicWave .65s ease-in-out infinite alternate}
-.music-bars i:nth-child(2){animation-delay:-.4s}.music-bars i:nth-child(3){animation-delay:-.2s}.music-bars i:nth-child(4){animation-delay:-.5s}.music-bars i:nth-child(5){animation-delay:-.3s}
-@keyframes musicWave{from{height:5px}to{height:26px}}
-.music-progress{width:100%;height:5px;margin-top:17px;accent-color:#b00012;cursor:pointer}
-.music-time{display:flex;justify-content:space-between;margin-top:4px;color:#c8aeb2;font-size:11px}
-#musicBtn{width:100%;margin-top:12px;padding:11px 15px;display:flex;align-items:center;justify-content:center;gap:9px;border:1px solid #70000a;border-radius:10px;background:linear-gradient(135deg,#85000e,#430006);color:#fff;font-size:14px;font-weight:bold;cursor:pointer;box-shadow:none}
-#musicBtn:hover{background:linear-gradient(135deg,#a00012,#650008)}
-@media(max-width:800px){nav{padding:14px 6%}.links{gap:12px;font-size:13px}.hero{padding:45px 6%;gap:25px}.profile-wrap{width:255px}.profile{width:215px;height:215px}}
-@media(max-width:700px){nav{align-items:flex-start;flex-direction:column;padding:14px 6%}.links{gap:13px;font-size:13px}.hero{flex-direction:column-reverse;text-align:center;padding:38px 6% 45px;min-height:auto;gap:30px}.intro{width:100%}.profile-wrap{width:100%;max-width:360px}.profile{width:190px;height:190px}.buttons{justify-content:center}.social-area{margin-top:22px}section{padding:43px 6%}.gallery{grid-template-columns:repeat(2,minmax(0,1fr))}.photo{height:165px}.card{padding:22px}}
-@media(max-width:380px){.gallery{grid-template-columns:1fr}.links{gap:10px}.social a{font-size:12px;padding:10px 6px}.music-player{width:calc(100% - 24px)}}
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}}
+:root{
+  --red:#b00012;
+  --deep-red:#70000a;
+  --bright-red:#d00018;
+  --text:#f7f2f2;
+  --muted:#c8bfc1;
+  --border:rgba(190,0,20,.55);
+}
+
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+
+body{
+  background:
+    radial-gradient(ellipse at 15% 10%,rgba(130,0,12,.22),transparent 42%),
+    radial-gradient(ellipse at 90% 55%,rgba(110,0,12,.14),transparent 36%),
+    linear-gradient(145deg,#020202,#100105 55%,#030000);
+  color:var(--text);
+  font-family:Arial,sans-serif;
+  overflow-x:hidden;
+}
+
+a{color:inherit;text-decoration:none}
+
+nav{
+  position:sticky;
+  top:0;
+  z-index:10;
+  background:rgba(5,0,0,.97);
+  padding:15px 7%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:15px;
+  border-bottom:1px solid rgba(176,0,18,.75);
+}
+
+.logo{
+  color:#d00018;
+  font-weight:900;
+  font-size:20px;
+  letter-spacing:.4px;
+}
+
+.links{
+  display:flex;
+  gap:18px;
+  flex-wrap:wrap;
+  font-size:14px;
+}
+
+.links a{transition:color .2s}
+.links a:hover{color:#ff5265}
+
+.hero{
+  min-height:78vh;
+  padding:55px 8%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:35px;
+  background:radial-gradient(ellipse at 80% 40%,#390008 0%,transparent 65%);
+}
+
+.intro{max-width:650px}
+
+.tag{
+  color:#d64a59;
+  letter-spacing:3px;
+  font-size:12px;
+}
+
+h1{
+  font-size:clamp(42px,7vw,78px);
+  line-height:1.05;
+  margin:20px 0;
+}
+
+h1 span{
+  color:#b00012;
+  text-shadow:0 0 18px #b0001240;
+}
+
+p{color:var(--muted);line-height:1.8}
+
+.buttons{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+  margin-top:25px;
+}
+
+.btn{
+  padding:13px 20px;
+  border-radius:7px;
+  font-weight:bold;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:9px;
+  transition:box-shadow .2s,border-color .2s;
+}
+
+.primary{
+  background:linear-gradient(135deg,#9b000e,#650008);
+  color:white;
+  border:1px solid #b00012;
+}
+
+.secondary{
+  border:1px solid #79000b;
+  color:#e35a68;
+}
+
+.btn:hover{box-shadow:0 0 14px #b0001240}
+
+.profile-wrap{
+  flex-shrink:0;
+  width:280px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+
+.profile{
+  width:245px;
+  height:245px;
+  border-radius:50%;
+  padding:6px;
+  border:3px solid #a90012;
+  background:#090000;
+  box-shadow:0 0 24px #8b000033;
+  animation:floatProfile 4.5s ease-in-out infinite;
+}
+
+.profile img{
+  width:100%;
+  height:100%;
+  border-radius:50%;
+  object-fit:cover;
+  display:block;
+}
+
+.follow-instagram{
+  margin-top:19px;
+  min-width:175px;
+  padding:12px 22px;
+  display:inline-flex;
+  justify-content:center;
+  align-items:center;
+  gap:10px;
+  color:#fff;
+  background:linear-gradient(135deg,#8b0000,#570006);
+  border:1px solid #a50012;
+  border-radius:8px;
+  font-size:15px;
+  font-weight:bold;
+  box-shadow:0 0 12px #79000b35;
+  transition:transform .2s,box-shadow .2s;
+}
+
+.follow-instagram:hover{
+  transform:translateY(-2px);
+  box-shadow:0 0 17px #a000164c;
+}
+
+.profile-handle{
+  margin-top:8px;
+  font-size:12px;
+  color:#b8a0a3;
+  letter-spacing:.4px;
+}
+
+/* ORIGINAL SOCIAL BRAND ICONS */
+.brand-icon{
+  width:23px;
+  height:23px;
+  flex-shrink:0;
+  display:block;
+}
+
+.brand-icon.youtube{color:#ff3038}
+.brand-icon.instagram{color:#f16b8d}
+.brand-icon.facebook{color:#4c8dff}
+.brand-icon.telegram{color:#40b9ef}
+
+.social-area{
+  width:100%;
+  max-width:360px;
+  margin-top:23px;
+}
+
+.social-heading{
+  text-align:center;
+  font-size:12px;
+  font-weight:bold;
+  letter-spacing:2px;
+  color:#d3a0a5;
+  margin-bottom:13px;
+}
+
+.social{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:10px;
+}
+
+.social a{
+  min-width:0;
+  min-height:56px;
+  padding:11px 9px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  background:linear-gradient(145deg,#190306,#080304);
+  border:1px solid #4c1018;
+  border-radius:10px;
+  font-size:13px;
+  font-weight:bold;
+  transition:border-color .2s,background .2s;
+}
+
+.social a:hover{
+  border-color:#a00016;
+  background:linear-gradient(145deg,#260309,#0b0304);
+}
+
+.social a span{
+  overflow-wrap:anywhere;
+}
+
+.social a:focus-visible,
+.btn:focus-visible,
+#musicBtn:focus-visible{
+  outline:2px solid #ff5365;
+  outline-offset:3px;
+}
+
+section{
+  padding:52px 8%;
+  scroll-margin-top:75px;
+}
+
+h2{
+  text-align:center;
+  font-size:clamp(28px,4vw,42px);
+  margin-bottom:15px;
+}
+
+h2 span{color:#b00012}
+
+.sub{
+  text-align:center;
+  max-width:600px;
+  margin:0 auto 30px;
+}
+
+.card{
+  position:relative;
+  background:linear-gradient(145deg,#1b0306,#0a0405);
+  border:1px solid #570811;
+  border-radius:14px;
+  padding:25px;
+  transition:border-color .25s;
+  animation:floatPhoto 4.5s ease-in-out infinite;
+}
+
+.card:hover{border-color:#a50015}
+.card h3{color:#d34b5b;margin:12px 0}
+
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:15px;
+}
+
+.photo{
+  height:220px;
+  overflow:hidden;
+  border-radius:12px;
+  position:relative;
+  background:#100709;
+  border:1px solid #4a0b13;
+  animation:floatPhoto 4s ease-in-out infinite;
+}
+
+.photo:nth-child(3n+2){animation-delay:-1.3s}
+.photo:nth-child(3n){animation-delay:-2.5s}
+
+.photo img{
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:transform .35s;
+}
+
+.photo:hover img{transform:scale(1.04)}
+
+footer{
+  text-align:center;
+  padding:25px;
+  color:#999;
+  border-top:1px solid #3a080e;
+  font-size:13px;
+}
+
+footer span{color:#c00016}
+
+/* FLOATING ANIMATIONS */
+@keyframes floatText{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-4px)}
+}
+
+@keyframes floatPhoto{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-5px)}
+}
+
+@keyframes floatProfile{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-8px)}
+}
+
+.logo,
+.links a,
+.tag,
+h1,h2,h3,
+.intro p,
+.buttons .btn,
+.social-heading,
+footer{
+  animation:floatText 3.5s ease-in-out infinite;
+}
+
+/* SNOWFALL */
+#falling-effects{
+  position:fixed;
+  inset:0;
+  overflow:hidden;
+  pointer-events:none;
+  z-index:9998;
+  contain:layout paint;
+}
+
+.falling-item{
+  position:absolute;
+  top:-35px;
+  color:#fff;
+  line-height:1;
+  user-select:none;
+  pointer-events:none;
+  will-change:transform;
+  animation:snowFall linear infinite;
+}
+
+@keyframes snowFall{
+  0%{transform:translate3d(0,-35px,0) rotate(0deg);opacity:0}
+  10%{opacity:.75}
+  90%{opacity:.65}
+  100%{transform:translate3d(25px,110vh,0) rotate(220deg);opacity:0}
+}
+
+/* MUSIC BUTTON — ORIGINAL POSITION AND SIZE */
+#musicBtn{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  z-index:99999;
+  padding:12px 17px;
+  border:2px solid #8d0010;
+  border-radius:10px;
+  background:linear-gradient(135deg,#a00012,#650008);
+  color:white;
+  font-family:Arial,sans-serif;
+  font-size:15px;
+  font-weight:bold;
+  box-shadow:0 0 10px #79000b45;
+  cursor:pointer;
+  animation:musicGlow 3s ease-in-out infinite;
+}
+
+@keyframes musicGlow{
+  0%,100%{box-shadow:0 0 7px #79000b45}
+  50%{box-shadow:0 0 13px #a0001255}
+}
+
+@media(max-width:800px){
+  nav{padding:14px 6%}
+  .links{gap:12px;font-size:13px}
+  .hero{padding:45px 6%;gap:25px}
+  .profile-wrap{width:255px}
+  .profile{width:215px;height:215px}
+}
+
+@media(max-width:700px){
+  nav{
+    align-items:flex-start;
+    flex-direction:column;
+    padding:14px 6%;
+  }
+
+  .links{gap:13px;font-size:13px}
+
+  .hero{
+    flex-direction:column-reverse;
+    text-align:center;
+    padding:38px 6% 45px;
+    min-height:auto;
+    gap:30px;
+  }
+
+  .intro{width:100%}
+  .profile-wrap{width:100%;max-width:360px}
+  .profile{width:190px;height:190px}
+  .buttons{justify-content:center}
+  .social-area{margin-top:22px}
+  section{padding:43px 6%}
+  .gallery{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .photo{height:165px}
+  .card{padding:22px}
+}
+
+@media(max-width:380px){
+  .gallery{grid-template-columns:1fr}
+  .links{gap:10px}
+  .social a{font-size:12px;padding:10px 6px}
+  #musicBtn{bottom:14px;right:14px}
+}
+
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+}
 </style>
 </head>
+
 <body>
+
 <nav>
   <a class="logo" href="#home">⚡ NS WALE BHAIYA</a>
-  <div class="links"><a href="#home">Home</a><a href="#about">About</a><a href="#gallery">Gallery</a><a href="#social">Social</a></div>
+  <div class="links">
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#social">Social</a>
+  </div>
 </nav>
 
 <main>
 <section class="hero" id="home">
+
   <div class="intro">
     <div class="tag">🏍 RIDER • DREAMER • EXPLORER</div>
-    <h1 class="neon-name">NS WALE<br><span>BHAIYA</span></h1>
+    <h1>NS WALE<br><span>BHAIYA</span></h1>
     <p>Welcome to my world! Bikes, journeys, amazing memories and the freedom of the open road. Follow my journey and become part of the ride.</p>
-    <div class="buttons"><a class="btn primary" href="#gallery">Explore Gallery</a><a class="btn secondary" href="#social">Follow Me</a></div>
+
+    <div class="buttons">
+      <a class="btn primary" href="#gallery">Explore Gallery</a>
+      <a class="btn secondary" href="#social">Follow Me</a>
+    </div>
   </div>
 
   <div class="profile-wrap">
-    <div class="profile"><img src="1750246498384.jpg" alt="NS Wale Bhaiya profile"></div>
-    <a class="follow-instagram" href="https://www.instagram.com/NS_Wale_Bhaiya/" target="_blank" rel="noopener noreferrer">
-      <svg class="brand-icon instagram" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+    <div class="profile">
+      <img src="1750246498384.jpg" alt="NS Wale Bhaiya profile">
+    </div>
+
+    <!-- INSTAGRAM FOLLOW BUTTON -->
+    <a class="follow-instagram"
+       href="https://www.instagram.com/NS_Wale_Bhaiya/"
+       target="_blank"
+       rel="noopener noreferrer">
+      <svg class="brand-icon instagram" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="3" y="3" width="18" height="18" rx="5"/>
+        <circle cx="12" cy="12" r="4"/>
+        <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+      </svg>
       Follow Me
     </a>
+
     <div class="profile-handle">@NS_Wale_Bhaiya</div>
 
+    <!-- SOCIAL LINKS DIRECTLY BELOW PROFILE -->
     <div class="social-area" id="social">
       <div class="social-heading">✦ CONNECT WITH ME ✦</div>
+
       <div class="social">
-        <a href="https://youtube.com/@ns_wale_bhaiya?si=vP4jl76WlRu68x-m" target="_blank" rel="noopener noreferrer" aria-label="Visit YouTube channel">
-          <svg class="brand-icon youtube" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8ZM9.6 15.6V8.4l6.3 3.6-6.3 3.6Z"/></svg><span>YouTube</span>
+
+        <a href="https://youtube.com/@ns_wale_bhaiya?si=vP4jl76WlRu68x-m"
+           target="_blank" rel="noopener noreferrer"
+           aria-label="Visit YouTube channel">
+          <svg class="brand-icon youtube" viewBox="0 0 24 24" aria-hidden="true">
+            <path fill="currentColor" d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8ZM9.6 15.6V8.4l6.3 3.6-6.3 3.6Z"/>
+          </svg>
+          <span>YouTube</span>
         </a>
-        <a href="https://www.instagram.com/NS_Wale_Bhaiya/" target="_blank" rel="noopener noreferrer" aria-label="Visit Instagram profile">
-          <svg class="brand-icon instagram" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg><span>Instagram</span>
+
+        <a href="https://www.instagram.com/NS_Wale_Bhaiya/"
+           target="_blank" rel="noopener noreferrer"
+           aria-label="Visit Instagram profile">
+          <svg class="brand-icon instagram" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="3" width="18" height="18" rx="5"/>
+            <circle cx="12" cy="12" r="4"/>
+            <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+          </svg>
+          <span>Instagram</span>
         </a>
-        <a href="https://www.facebook.com/share/1DbcUAdqet/" target="_blank" rel="noopener noreferrer" aria-label="Visit Facebook">
-          <svg class="brand-icon facebook" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M24 12a12 12 0 1 0-13.9 11.85v-8.38H7.08V12h3.02V9.36c0-2.98 1.78-4.63 4.5-4.63 1.3 0 2.66.23 2.66.23v2.93h-1.5c-1.48 0-1.94.92-1.94 1.87V12h3.3l-.53 3.47h-2.77v8.38A12 12 0 0 0 24 12Z"/></svg><span>Facebook</span>
+
+        <a href="https://www.facebook.com/share/1DbcUAdqet/"
+           target="_blank" rel="noopener noreferrer"
+           aria-label="Visit Facebook">
+          <svg class="brand-icon facebook" viewBox="0 0 24 24" aria-hidden="true">
+            <path fill="currentColor" d="M24 12a12 12 0 1 0-13.9 11.85v-8.38H7.08V12h3.02V9.36c0-2.98 1.78-4.63 4.5-4.63 1.3 0 2.66.23 2.66.23v2.93h-1.5c-1.48 0-1.94.92-1.94 1.87V12h3.3l-.53 3.47h-2.77v8.38A12 12 0 0 0 24 12Z"/>
+          </svg>
+          <span>Facebook</span>
         </a>
-        <a href="https://t.me/blacl_devilyt" target="_blank" rel="noopener noreferrer" aria-label="Join Telegram">
-          <svg class="brand-icon telegram" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M21.9 3.2 18.6 20c-.25 1.18-.9 1.47-1.82.92l-5.03-3.7-2.43 2.34c-.27.27-.5.5-1.02.5l.36-5.12 9.32-8.42c.4-.36-.09-.56-.62-.2L5.84 13.6.87 12.05c-1.08-.34-1.1-1.08.22-1.6L20.5 2.9c.9-.33 1.68.22 1.4.3Z"/></svg><span>Join Me</span>
+
+        <a href="https://t.me/blacl_devilyt"
+           target="_blank" rel="noopener noreferrer"
+           aria-label="Join Telegram">
+          <svg class="brand-icon telegram" viewBox="0 0 24 24" aria-hidden="true">
+            <path fill="currentColor" d="M21.9 3.2 18.6 20c-.25 1.18-.9 1.47-1.82.92l-5.03-3.7-2.43 2.34c-.27.27-.5.5-1.02.5l.36-5.12 9.32-8.42c.4-.36-.09-.56-.62-.2L5.84 13.6.87 12.05c-1.08-.34-1.1-1.08.22-1.6L20.5 2.9c.9-.33 1.68.22 1.4.3Z"/>
+          </svg>
+          <span>Join Me</span>
         </a>
+
       </div>
     </div>
   </div>
 </section>
 
-<!-- PREMIUM MUSIC PLAYER -->
-<div class="music-player" id="musicPlayer">
-  <div class="music-top">
-    <div class="music-disc" id="musicDisc"><span>♪</span></div>
-    <div class="music-info"><strong>Apna Bana Le</strong><small>Now Playing • NS Wale Bhaiya</small></div>
-    <div class="music-bars" id="musicBars" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
-  </div>
-  <input id="musicProgress" class="music-progress" type="range" min="0" max="100" value="0" step="0.1" aria-label="Song progress">
-  <div class="music-time"><span id="musicCurrent">0:00</span><span id="musicDuration">0:00</span></div>
-  <button id="musicBtn" type="button" aria-label="Play music"><span id="musicBtnIcon">▶</span><span id="musicBtnText">Play Music</span></button>
-</div>
-
+<!-- ABOUT ME MOVED UP, DIRECTLY AFTER THE PROFILE/SOCIAL AREA -->
 <section id="about">
   <h2>ABOUT <span>ME</span></h2>
   <p class="sub">My journey, my community, my comeback.</p>
+
   <div class="card" style="max-width:850px;margin:0 auto;text-align:left;line-height:1.9">
     <h3 style="font-size:26px;text-align:center">NS Wale Bhaiya</h3>
-    <p style="margin-top:20px">Hey everyone, I am Saiyob Akter Ansari, but most of you know me as NS Wale Bhaiya.</p>
-    <p style="margin-top:15px">I started my digital journey as a content creator on YouTube, where I’ve built an amazing community of 2K+ subscribers who have always supported my work. Creating videos, sharing my rides, and connecting with people through my content has always been a true passion of mine.</p>
-    <p style="margin-top:15px">However, life sometimes takes unexpected turns. Due to some personal and family reasons, I am currently unable to create regular videos and have had to take a temporary break from content creation. But please know that this is definitely not the end of the journey.</p>
-    <p style="margin-top:15px">I am planning to return soon with full energy, fresh ideas, and a brand-new comeback. Until then, stay connected with me right here through this website and my social media profiles. Your constant support means everything to me, and I can't wait to see you all again very soon!</p>
-    <h3 style="text-align:center;margin-top:25px;color:#168cff">🔥 THE COMEBACK IS COMING 🔥</h3>
+
+    <p style="margin-top:20px">
+      Hey everyone, I am Saiyob Akter Ansari, but most of you know me as NS Wale Bhaiya.
+    </p>
+
+    <p style="margin-top:15px">
+      I started my digital journey as a content creator on YouTube, where I’ve built an amazing community of 2K+ subscribers who have always supported my work. Creating videos, sharing my rides, and connecting with people through my content has always been a true passion of mine.
+    </p>
+
+    <p style="margin-top:15px">
+      However, life sometimes takes unexpected turns. Due to some personal and family reasons, I am currently unable to create regular videos and have had to take a temporary break from content creation. But please know that this is definitely not the end of the journey.
+    </p>
+
+    <p style="margin-top:15px">
+      I am planning to return soon with full energy, fresh ideas, and a brand-new comeback. Until then, stay connected with me right here through this website and my social media profiles. Your constant support means everything to me, and I can't wait to see you all again very soon!
+    </p>
+
+    <h3 style="text-align:center;margin-top:25px;color:#168cff">
+      🔥 THE COMEBACK IS COMING 🔥
+    </h3>
   </div>
 </section>
 
@@ -165,61 +580,47 @@ footer span{color:#c00016}
 </section>
 </main>
 
-<footer>© <span>NS Wale Bhaiya</span> | Biker Portfolio<br>Ride responsibly. Make every journey memorable.</footer>
+<footer>
+  © <span>NS Wale Bhaiya</span> | Biker Portfolio<br>
+  Ride responsibly. Make every journey memorable.
+</footer>
 
 <video id="bgMusic" loop playsinline preload="none" style="display:none">
   <source src="apna%20bana%20le%20-%20Arijit%20Singh%20%5Bedit%20audio%5D%28720P_HD%29.mp4" type="video/mp4">
 </video>
 
+<button id="musicBtn" type="button" aria-label="Play Music">Play Music</button>
+
 <div id="falling-effects" aria-hidden="true"></div>
 
 <script>
-/* PREMIUM MUSIC PLAYER */
+/* MUSIC BUTTON */
 const music=document.getElementById("bgMusic");
 const musicBtn=document.getElementById("musicBtn");
-const musicBtnIcon=document.getElementById("musicBtnIcon");
-const musicBtnText=document.getElementById("musicBtnText");
-const musicDisc=document.getElementById("musicDisc");
-const musicBars=document.getElementById("musicBars");
-const musicProgress=document.getElementById("musicProgress");
-const musicCurrent=document.getElementById("musicCurrent");
-const musicDuration=document.getElementById("musicDuration");
 
-music.volume=0.5;
-function formatTime(seconds){
-  if(!Number.isFinite(seconds)) return "0:00";
-  const mins=Math.floor(seconds/60);
-  const secs=Math.floor(seconds%60);
-  return mins+":"+String(secs).padStart(2,"0");
-}
-function updateMusicUI(playing){
-  musicBtnIcon.textContent=playing?"❚❚":"▶";
-  musicBtnText.textContent=playing?"Pause Music":"Play Music";
-  musicBtn.setAttribute("aria-label",playing?"Pause music":"Play music");
-  musicDisc.classList.toggle("playing",playing);
-  musicBars.classList.toggle("playing",playing);
-}
+music.volume=.5;
+
 musicBtn.addEventListener("click",async function(){
   if(music.paused){
-    try{await music.play();updateMusicUI(true)}
-    catch(error){updateMusicUI(false);alert("Song nahi chala. MP4 file ka naam aur location check karo.")}
-  }else{music.pause();updateMusicUI(false)}
+    try{
+      await music.play();
+      musicBtn.textContent="Pause Music";
+      musicBtn.setAttribute("aria-label","Pause Music");
+    }catch(error){
+      musicBtn.textContent="Play Music";
+      musicBtn.setAttribute("aria-label","Play Music");
+      alert("Song nahi chala. MP4 file ka naam aur location check karo.");
+    }
+  }else{
+    music.pause();
+    musicBtn.textContent="Play Music";
+    musicBtn.setAttribute("aria-label","Play Music");
+  }
 });
-music.addEventListener("loadedmetadata",function(){musicDuration.textContent=formatTime(music.duration)});
-music.addEventListener("timeupdate",function(){
-  musicCurrent.textContent=formatTime(music.currentTime);
-  if(Number.isFinite(music.duration)&&music.duration>0) musicProgress.value=(music.currentTime/music.duration)*100;
-});
-musicProgress.addEventListener("input",function(){
-  if(Number.isFinite(music.duration)&&music.duration>0) music.currentTime=(Number(musicProgress.value)/100)*music.duration;
-});
-music.addEventListener("play",()=>updateMusicUI(true));
-music.addEventListener("pause",()=>updateMusicUI(false));
-music.addEventListener("ended",()=>updateMusicUI(false));
-updateMusicUI(false);
 
 /* ALL 18 ORIGINAL PHOTO FILENAMES PRESERVED */
 const gallery=document.getElementById("photoGallery");
+
 const photos=[
   "IMG_20260224_150506275_HDR~2.jpg",
   "IMG_20260224_150010292_HDR~2.jpg",
@@ -240,15 +641,21 @@ const photos=[
   "IMG_20240709_102901_307.jpg",
   "IMG_20240105_184359_739.jpg"
 ];
+
 photos.forEach((filename,index)=>{
   const card=document.createElement("div");
   card.className="photo";
+
   const img=document.createElement("img");
   img.src=filename;
   img.alt="Biker photo "+(index+1);
   img.loading="lazy";
   img.decoding="async";
-  img.onerror=function(){img.style.display="none"};
+
+  img.onerror=function(){
+    img.style.display="none";
+  };
+
   card.appendChild(img);
   gallery.appendChild(card);
 });
@@ -256,9 +663,12 @@ photos.forEach((filename,index)=>{
 /* LIGHTWEIGHT WHITE SNOWFALL */
 (function(){
   const container=document.getElementById("falling-effects");
-  if(!container||container.childElementCount) return;
+  if(!container || container.childElementCount) return;
+
   const symbols=["❄","❅","❆"];
-  for(let i=0;i<24;i++){
+  const total=24;
+
+  for(let i=0;i<total;i++){
     const snow=document.createElement("span");
     snow.className="falling-item";
     snow.textContent=symbols[i%symbols.length];
@@ -269,38 +679,7 @@ photos.forEach((filename,index)=>{
     container.appendChild(snow);
   }
 })();
+</script>
 
-/* NEON CURSOR TRAIL + MOBILE TOUCH EFFECT */
-(function(){
-  const colors=["#ff1600","#ff321f","#ff9d00"];
-  let lastTime=0;
-  function makeGlow(x,y){
-    const dot=document.createElement("span");
-    dot.className="neon-trail-particle";
-    const size=4+Math.random()*6;
-    const color=colors[Math.floor(Math.random()*colors.length)];
-    dot.style.position="fixed";
-    dot.style.left=x+"px";
-    dot.style.top=y+"px";
-    dot.style.width=size+"px";
-    dot.style.height=size+"px";
-    dot.style.borderRadius="50%";
-    dot.style.pointerEvents="none";
-    dot.style.zIndex="100000";
-    dot.style.background=color;
-    dot.style.boxShadow="0 0 8px "+color+",0 0 16px #ff321f";
-    dot.style.transform="translate(-50%,-50%)";
-    dot.style.animation="neonTrailFade .65s ease-out forwards";
-    document.body.appendChild(dot);
-    dot.addEventListener("animationend",()=>dot.remove(),{once:true});
-  }
-  function handleMove(x,y){
-    const now=performance.now();
-    if(now-lastTime<35) return;
-    lastTime=now;
-    makeGlow(x,y);
-  }
-  document.addEventListener("pointermove",function(event){
-    if(event.pointerType==="mouse") handleMove(event.clientX,event.clientY);
-  },{passive:true});
-  
+</body>
+</html>
