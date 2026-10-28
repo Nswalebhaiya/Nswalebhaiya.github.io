@@ -142,6 +142,60 @@ footer {
   border-top-color: rgba(255, 20, 40, 0.4);
 }
   
+/* FLOATING ANIMATION FOR ALL TEXT */
+@keyframes allTextFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+/* Logo and navigation text */
+.logo,
+.links a {
+  display: inline-block;
+  animation: allTextFloat 3s ease-in-out infinite;
+}
+
+/* All headings and paragraphs */
+h1, h2, h3, p, .tag {
+  animation: allTextFloat 3s ease-in-out infinite;
+}
+
+/* Buttons and gallery labels */
+.btn,
+#followBtn,
+.photo span {
+  animation: allTextFloat 3s ease-in-out infinite;
+}
+
+/* Social links and card text */
+.social a,
+.card h3,
+.card p {
+  animation: allTextFloat 3s ease-in-out infinite;
+}
+
+/* Floating footer text */
+footer,
+footer span {
+  animation: allTextFloat 3s ease-in-out infinite;
+}
+
+/* Accessibility: respect reduced-motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .logo,
+  .links a,
+  h1, h2, h3, p, .tag,
+  .btn, #followBtn, .photo span,
+  .social a, .card h3, .card p,
+  footer, footer span {
+    animation: none;
+  }
+}
+  
 </style>
 </head>
 
